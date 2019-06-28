@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+    <title><%= htmlWebpackPlugin.options.title %></title>
+
+        <%= require('html-loader!./templates/head.html') %>
+
+  </head>
+
+
+  <%= require('html-loader!./templates/navbar.html') %>
+
+
+
+<div class="page-container" id="home">
+
+
+      <div id="jumbotron" class=" ">
+
+
+        <div class="jumbo-logo-container">
+
+          <img :src="jumboLogo" height=240px width=240px  ></img>
+
+            <div class="subtitle font-roboto">0xBitcoin Blocks & Stats</div>
+        </div>
+
+
+        <div class="whitespace-sm"></div>
+
+
+        <div class="subtitle color-primary has-text-centered" v-cloak>
+          {{ errorMessage }}
+        </div>
+
+
+
+
+
+
+
+
+
+      </div>
+
+      <section class="hero   ">
+        <div class="hero-body">
+
+
+          <div class="columns align-self-center">
+            <div class="column">
+
+              <div id="mint-list" class="event-list" v-cloak>
+
+
+                <div class="has-text-centered" ><b>Recent Mints</b></div>
+
+                <table align="center">
+                  <thead>
+                    <tr >
+                      <td class="has-text-centered"> Block </td>
+                      <td class="has-text-centered"> Hash </td>
+
+                    </tr>
+                  </thead>
+                  <tbody>
+                  <tr v-for="(item, index) in list"   v-bind:class="{   'asset-row':true, 'acts-as-link':true, 'hover-shadow':true   } " >
+
+                      <td class="row-cell has-text-centered  "> {{item.blockNumberFormatted}} </td>
+                     <td class="row-cell has-text-centered "> <a v-bind:href="item.url"> {{item.hashFormatted}} </a> </td>
+
+                  </tr>
+                </tbody>
+              </table>
+
+               </div>
+
+            </div>
+
+            <div class="column">
+
+              <div id="transfer-list" class="event-list" v-cloak>
+
+
+                  <table align="center">
+                <div class="has-text-centered" ><b>Recent Transfers</b></div>
+
+
+                  <thead>
+                    <tr >
+                      <td class="has-text-centered"> Block </td>
+                      <td class="has-text-centered"> Hash </td>
+
+                    </tr>
+                  </thead>
+                  <tbody>
+                  <tr v-for="(item, index) in list"   v-bind:class="{   'asset-row':true, 'acts-as-link':true, 'hover-shadow':true   } " >
+
+                      <td class="row-cell has-text-centered  "> {{item.blockNumberFormatted}} </td>
+                     <td class="row-cell has-text-centered "> <a v-bind:href="item.url"> {{item.hashFormatted}} </a> </td>
+
+                  </tr>
+                </tbody>
+              </table>
+
+               </div>
+
+            </div>
+
+          </div>
+        </section>
+
+          <section class="col-lg-16" id="aboutUs" class="aboutUs">
+
+            <div class="row justify-content-center">
+
+            <div class="column justify-content-center">
+
+            <div class="heading-title text-center">
+<table class="table" style="background="fff align="center">
+  <tbody>
+    <tr>
+      <th>
+
+            									<font align=center size=6 color=#0059a2>{{ readableHashrate }}</font>
+
+<br>
+            						<canvas id="chart-hashrate" style="width:200%; height:150%;"></canvas>
+                      </th>
+                    </tr>
+                      </table>
+                    </tbody>
+            					</div>
+
+
+            				</div>
+            			</div>
+
+                  <div class="columns justify-content-center">
+                    <div class="column">
+
+          <b class="tab-content shadow p3 mb-5 rounded">
+          	<table class="table" style="background="fff align="">
+            <tbody>
+          		<tr>
+          		<th align="">
+                	<hr>
+          				<font size=6 color=#000000>Token Stats
+
+          				</font>
+          			</th>
+          		</tr>
+
+              <tr>
+                <th bgcolor="#ff7f00">
+          			<font size=4 color=#000000>Tokens Minted</font><br>
+
+          				<font size=5 color=#fff>{{ readableTokensMinted }} / {{ readableTotalSupply }}</font>
+          			</th>
+              </tr>
+          		<tr>
+          		<th bgcolor="#ff7f00">
+          			<font size=4 color=#000000>Network Hashrate</font><br>
+
+          			<font size=5 color=#fff>{{ readableHashrate }}</font>
+          			</th>
+              </tr>
+          		<tr>
+          			<th bgcolor="#ff7f00">
+          			<font size=4 color=#000000>Total Supply</font><br>
+
+          				<font size=5 color=#fff>{{ readableTotalSupply }} 0xBTC</font>
+          			</th>
+              </tr>
+          		<tr>
+          			<th bgcolor="#ff7f00">
+          			<font size=4 color=#000000>Mining Difficulty</font><br>
+
+          				<font size=5 color=#fff>{{ readableDifficulty }}</font>
+          			</th>
+              </tr>
+          		<tr>
+          			<th bgcolor="#ff7f00">
+          			<font size=4 color=#000000>Mining Reward</font><br>
+
+          				<font size=5 color=#fff>{{ mining_reward }} 0xBTC</font>
+          			</th>
+              </tr>
+          		<tr>
+          			<th bgcolor="#ff7f00">
+          			<font size=4 color=#000000>Smart Contract Calls</font><br>
+
+          				<font size=5 color=#fff>{{ readableContractOperations }}</font>
+
+          			</th>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+
+            <div class="column">
+              <table class="table" style="background="fff align="center">
+                <tbody>
+          		<tr>
+          			<td>
+          				<hr>
+          				<font size=6 color="#000"><b>Token Distribution</b></font><br>
+          				<b><font class="wallets" size=4></font></b><br>
+          				<font size=2><strong>Top 1000 shown</strong></font>
+          					<canvas id="pie-holders" style="width:5%; height:10%;"></canvas>
+          				</td>
+          			</tr>
+
+
+
+          			</tbody>
+          			</table>
+              </div>
+            </div>
+              </b>
+
+
+        <div class="whitespace-md"></div>
+
+
+        </div>
+      </section>
+
+
+
+
+  </div>
+
+
+
+      <%= require('html-loader!./templates/footer.html') %>
+
+
+  </body>
+</html>

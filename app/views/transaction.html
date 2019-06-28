@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+    <title><%= htmlWebpackPlugin.options.title %></title>
+
+    <%= require('html-loader!./templates/head.html') %>
+
+
+  </head>
+
+
+  <%= require('html-loader!./templates/navbar.html') %>
+
+
+
+<div class="page-container" id="transaction">
+
+
+  <section class="hero   ">
+    <div class="hero-body">
+
+
+
+    <div class="whitespace-md"></div>
+
+
+      <div id="tx-data" class="tx-data">
+        <div   class="subtitle">
+          Tx Hash: {{ txData.hash }}
+        </div>
+
+        <div class="attributes box">
+
+          <div class="attribute-row">
+            Type: {{ txData.txType }}
+          </div>
+          <div class="attribute-row">
+            Block: {{ txData.blockNumber }}
+          </div>
+          <div class="attribute-row">
+            To: <a v-bind:href="txData.toUrl"> {{ txData.to }} </a>
+          </div>
+          <div class="attribute-row">
+            From: <a v-bind:href="txData.fromUrl"> {{ txData.from }} </a>
+          </div>
+          <div class="attribute-row" v-if="txData.transferTo">
+            Transfer To: <a v-bind:href="txData.transferToUrl"> {{ txData.transferTo }} </a>
+          </div>
+          <div class="attribute-row" v-if="txData.transferAmount">
+            0xBTC Transferred:   {{ txData.transferAmount }}
+          </div>
+          <div class="attribute-row" v-if="txData.mintNonce">
+            Mint Nonce:   {{ txData.mintNonce }}
+          </div>
+          <div class="attribute-row">
+            Raw Input: {{ txData.input }}
+          </div>
+          <div class="attribute-row">
+            <a v-bind:href="txData.etherscanUrl">  Etherscan Link  </a>
+          </div>
+
+        </div>
+
+
+       </div>
+
+
+             <div class="whitespace-md"></div>
+
+
+    </div>
+  </section>
+
+
+  </div>
+
+
+
+      <%= require('html-loader!./templates/footer.html') %>
+
+
+      <a id="scrollUp" href="#top" style="position: fixed; z-index: 2147483647;"><i class="icon-arrow-up"></i></a>
+
+  </body>
+</html>
