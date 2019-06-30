@@ -16,8 +16,11 @@ import githubLogo from '../img/GitHub-Mark-64px.png'
 import redditLogo from '../img/reddit-mark-64px.png'
 import contractQR from '../img/0xbitcoinContractQR.png'
 
+import Fundraiser from './template/fundraiser'
 
 
+let fundraiser = new Fundraiser(Eth);
+//let tokenStats = new TokenStats();
 
 
 
@@ -28,6 +31,7 @@ import HomeRenderer from './home-renderer'
 import SearchRenderer from './search-renderer'
 import AccountRenderer from './account-renderer'
 import TransactionRenderer from './transaction-renderer'
+
 
 import Navbar from './navbar'
 
