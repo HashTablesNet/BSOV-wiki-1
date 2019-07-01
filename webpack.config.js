@@ -16,7 +16,7 @@ var htmlPlugin = new HtmlWebpackPlugin({
 });
 */
 var extractPlugin = new ExtractTextPlugin({
-   filename: 'assets/main.css'
+   filename: 'app/assets/stylesheets/main.css'
 });
 
 
@@ -36,10 +36,10 @@ var webpackPlugins = [
 
 const routesData = {
   routes: [
-    {url: '/', title: '0xBTC Explorer', template: 'app/views/index.html', filename: 'index.html'},
-    {url: '/account', title: '0xBTC Explorer', template: 'app/views/account.html', filename: 'account.html'},
-    {url: '/tx', title: '0xBTC Explorer', template: 'app/views/transaction.html', filename: 'transaction.html'},
-    {url: '/search', title: '0xBTC Explorer', template: 'app/views/search.html', filename: 'search.html'},
+    {url: '/', title: '0xBTC.wiki', template: 'app/views/index.html', filename: 'index.html'},
+    {url: '/account', title: '0xBTC.wiki', template: 'app/views/account.html', filename: 'account.html'},
+    {url: '/tx', title: '0xBTC.wiki', template: 'app/views/transaction.html', filename: 'transaction.html'},
+    {url: '/search', title: '0xBTC.wiki', template: 'app/views/search.html', filename: 'search.html'},
     {url: '/wallet', title: '0xBTC Wallet', template: 'app/views/wallet.html', filename: 'wallet.html'},
    ]
 }
