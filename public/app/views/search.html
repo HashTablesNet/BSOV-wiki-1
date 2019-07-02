@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+    <title><%= htmlWebpackPlugin.options.title %></title>
+
+    <%= require('html-loader!./templates/head.html') %>
+
+
+  </head>
+
+
+  <%= require('html-loader!./templates/navbar.html') %>
+
+
+
+<div class="page-container" id="search">
+
+
+
+
+      <section class="hero   ">
+        <div class="hero-body">
+
+          <div   class="title">
+            Search Results
+          </div>
+
+        <div class="whitespace-md"></div>
+
+
+          <div id="search-results" class="search-results">
+
+
+            <div class="subtitle" v-if="noResults" v-cloak>No Results</div>
+
+            <div class="whitespace-md"></div>
+
+
+            <table>
+              <thead>
+                <tr >
+                  <td class="has-text-centered"> Type </td>
+                  <td class="has-text-centered"> Address </td>
+
+                </tr>
+              </thead>
+              <tbody>
+              <tr v-for="(item, index) in results"   v-bind:class="{   'asset-row':true, 'acts-as-link':true, 'hover-shadow':true   } " >
+
+                  <td class="row-cell has-text-centered  "> {{item.type}} </td>
+                 <td class="row-cell has-text-centered "> <a v-bind:href="item.url"> {{item.address}} </a> </td>
+
+              </tr>
+            </tbody>
+          </table>
+
+           </div>
+
+
+                 <div class="whitespace-md"></div>
+
+
+        </div>
+      </section>
+
+
+
+
+  </div>
+
+
+
+      <%= require('html-loader!./templates/footer.html') %>
+
+  </body>
+</html>

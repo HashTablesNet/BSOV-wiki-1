@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <!--Bootstrap Stylesheet-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous"/>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+    <!-- jquery is here because scripts need it early on. may want to move other js imports here. -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <!-- jqMath allows for real equation formatting -->
+    <script src="app/views/js/jqmath-etc-0.4.6.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <!-- note: lodash is only used for _.debounce() -->
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.10/lodash.min.js"></script>
+    <script src="app/views/js/tipr.min.js"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-117165354-1"></script>
+    <script type="text/javascript" src="app/views/js/gtag.js"></script>
+
+
+
+        <!--videoSTART-> <meta name="viewport" content="width=device-width, initial-scale=1"> <!-videoEND-->
+<meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+
+  <link rel="icon" type="image/png" href="/app/assets/img/favicon.png"/>
+
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"/>
+
+<title>0xBTC.wiki</title>
+
+<style>
+  #fundraiser-progress-container {
+    width: 400px;
+    height: 45px;
+    margin: -15px 0 0 -200px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: #4a00ff;
+    text-decoration-color: #00e010;
+    background-color: #4a00ff;
+}
+#fundraiser-progress-bar {
+    width: 0%;
+    height: 45px;
+    line-height: 45px; /* center text vertically; should match height */
+    background-color: #00e010;
+    color: #4a00ff;
+}
+</style>
+
+
+        <link rel="stylesheet" type="text/css" href="app/views/css/jqmath-0.4.3.css">
+
+        <link rel="stylesheet" type="text/css" href="app/views/css/main.css">
+        <link rel="stylesheet" type="text/css" href="app/views/css/themes/dark1.css">
+        <link rel="stylesheet" type="text/css" href="app/views/css/ionicons.css">
+        <link rel="stylesheet" type="text/css" href="app/views/css/tipr-corso.css">
+
+  <link href="/app/assets/stylesheets/main.css" rel="stylesheet"></head>
+  <body>
+    <div class="bg-light">
+
+
+  <div class="bg-light">
+<nav class="navbar " id="navbar">
+  <div class="navbar-container"  >
+
+
+  <div class="navbar-brand">
+    <a class="navbar-item" href="/">
+
+      <img src="/app/assets/img/0xBTC-Logo-white.png" height=70px width=70px></img>
+
+         <font size="6" color="000000"><b>0xBitcoin wiki</b></font>
+
+    </a>
+
+  </div>
+
+
+
+
+
+  <div class="navbar-burger" data-target="navMenu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+
+
+
+
+  <div  class="navbar-menu">
+    <div class="navbar-start">
+
+
+
+      <div class="navbar-item has-dropdown is-active">
+        <div class="navbar-link  is-active acts-as-link dropdown-button"  >
+          Docs
+        </div>
+        <div class="navbar-dropdown ">
+
+          <a class="navbar-item" target="blank" href="https://0xbitcoin.org">
+            0xBTC Website
+          </a>
+          <a class="navbar-item "  target="blank" href="https://github.com/0xbitcoin/white-paper">
+            White Paper
+          </a>
+          <a class="navbar-item "  target="blank" href="https://etherscan.io/address/0xb6ed7644c69416d67b522e20bc294a9a9b405b31#code">
+            Smart Contract
+          </a>
+
+          <!--
+          <a class="navbar-item "  target="blank" href="https://github.com/0xbitcoin/active-projects">
+            Active Projects
+          </a>
+          -->
+
+
+
+
+          <hr class="navbar-divider">
+          <div class="navbar-image">
+            <div class="has-text-centered">
+              <img :src="contractQR" height="72" width="72" style="max-height:72px"/>
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="navbar-item has-dropdown is-active  ">
+        <div class="navbar-link acts-as-link dropdown-button">
+          Community
+        </div>
+        <div class="navbar-dropdown ">
+
+          <a class="navbar-item "  target="blank" href="https://discord.gg/JGEqqmS">
+            Discord
+          </a>
+          <a class="navbar-item "  target="blank" href="https://reddit.com/r/0xbitcoin">
+            Subreddit
+          </a>
+          <a class="navbar-item" target="blank" href="https://github.com/0xbitcoin">
+            Github
+          </a>
+
+
+        </div>
+      </div>
+
+      <div class="navbar-item has-dropdown is-active  ">
+        <div class="navbar-link acts-as-link dropdown-button">
+          Exchanges
+        </div>
+        <div class="navbar-dropdown ">
+
+          <a class="navbar-item "  target="blank" href="http://0xbtc.wiki">
+            link1
+          </a>
+          <a class="navbar-item "  target="blank" href="http://0xbtc.wiki">
+            link2
+          </a>
+          <a class="navbar-item "  target="blank" href="http://0xbtc.wiki">
+            link3
+          </a>
+          <a class="navbar-item "  target="blank" href="http://0xbtc.wiki">
+            link4
+          </a>
+          <a class="navbar-item "  target="blank" href="http://0xbtc.wiki">
+            link5
+          </a>
+          <a class="navbar-item "  target="blank" href="http://0xbtc.wiki">
+            link6
+          </a>
+          <a class="navbar-item "  target="blank" href="http://0xbtc.wiki">
+            link7
+          </a>
+          <a class="navbar-item "  target="blank" href="http://0xbtc.wiki">
+            link8
+          </a>
+
+
+        </div>
+      </div>
+
+
+    </div>
+
+
+      <div class="navbar-end is-hidden-mobile" style="padding:5px;">
+
+
+       <div class="nav-search-container field is-horizontal">
+         <input class="input nav-search search" type="text" placeholder="Address / Txn Hash">
+         <a class="button nav-search-go">Go</a>
+
+       </div>
+
+      </div>
+    <font size="1">Search by Address / Txn Hash</font>
+
+
+
+  </div>
+
+
+
+</div>
+
+
+<div class="navbar-menu is-hidden-desktop" id="navMenu">
+  <!-- navbar-start, navbar-end... -->
+
+
+
+
+<div class="navbar-start has-text-centered navbar-collapse-mobile" >
+
+  <div class="navbar-item has-dropdown is-active  ">
+    <div class="navbar-link acts-as-link dropdown-button">
+      Community
+    </div>
+    <div class="navbar-dropdown ">
+
+      <a class="navbar-item "  target="blank" href="https://discord.gg/JGEqqmS">
+        Discord
+      </a>
+      <a class="navbar-item "  target="blank" href="https://reddit.com/r/0xbitcoin">
+        Subreddit
+      </a>
+      <a class="navbar-item" target="blank" href="https://github.com/0xbitcoin">
+        Github
+      </a>
+
+
+    </div>
+  </div>
+
+  <div class="navbar-item has-dropdown is-active">
+    <div class="navbar-link  is-active acts-as-link dropdown-button"  >
+      Docs
+    </div>
+    <div class="navbar-dropdown ">
+
+      <a class="navbar-item" target="blank" href="https://0xbitcoin.org">
+        0xBTC Website
+      </a>
+      <a class="navbar-item "  target="blank" href="https://github.com/0xbitcoin/white-paper">
+        White Paper
+      </a>
+      <a class="navbar-item "  target="blank" href="https://etherscan.io/address/0xb6ed7644c69416d67b522e20bc294a9a9b405b31#code">
+        Smart Contract
+      </a>
+
+      <!--
+      <a class="navbar-item "  target="blank" href="https://github.com/0xbitcoin/active-projects">
+        Active Projects
+      </a>
+      -->
+
+
+
+
+      <hr class="navbar-divider">
+      <div class="navbar-image">
+        <div class="has-text-centered">
+          <img :src="contractQR" height="72" width="72" style="max-height:72px"/>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="nav-search-container field is-horizontal">
+    <input class="input nav-search  search" type="text" placeholder="Address / Txn Hash">
+    <a class="button nav-search-go ">Go</a>
+    <br>
+  </div>
+
+
+    <hr>
+
+
+  </div>
+
+
+
+
+</div>
+</nav>
+</div>
+
+
+
+
+
+
+
+
+
+        <div class="jumbo-logo-container">
+
+          <img :src="jumboLogo" height=240px width=240px></img>
+
+            <div class="subtitle font-roboto"><font size=8 color="d40000">SAMPLE UNFINISHED</font><br>
+              <font size=4 color="d40000">Stats page and block explorer</font>
+
+            </div>
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <div class="container bg-white tab-content shadow p3 mb-5 rounded">
+
+        <b class="tab-content shadow p3 mb-5 rounded">
+  <!--<hide">  <div id="home" class="row" width="100%"> </hide>-->
+<div id="home" class="d-flex bd-highlight">
+  <div class="p-2 flex-fill bd-highligh col-3">
+    <!--<hide">   <div class="col-3" align="center"> </hide>-->
+
+
+      <div id="mint-list" class="event-list" v-cloak>
+        <div class="text-center" ><b>Recent Mints</b></div>
+
+        <table align="center">
+          <thead>
+            <tr >
+              <td class="has-text-centered"> Block </td>
+              <td class="has-text-centered"> Hash </td>
+
+            </tr>
+          </thead>
+          <tbody>
+          <tr v-for="(item, index) in list"   v-bind:class="{   'asset-row':true, 'acts-as-link':true, 'hover-shadow':true   } " >
+
+              <td class="row-cell has-text-centered  "> {{item.blockNumberFormatted}} </td>
+             <td class="row-cell has-text-centered "> <a v-bind:href="item.url"> {{item.hashFormatted}} </a> </td>
+
+          </tr>
+        </tbody>
+      </table>
+
+       </div>
+
+       <br>
+
+       <div style="display:none;" id="row-statistics">
+         <div class="row">
+           <div class="column"><h4 class="add-top-padding-5">Current Contract Status</h4></div>
+         </div>
+         <div class="row">
+           <div class="column">
+             <table>
+               <!--<thead> <tr> <th> </th> <th> </th> </tr> </thead>-->
+               <tbody id="statistics">
+                 <tr v-for="(item, index) in list"   v-bind:class="{   'asset-row':true, 'acts-as-link':true, 'hover-shadow':true   } " >
+                   <td colspan="2">Loading info from the blockchain...</td>
+                 </tr>
+               </tbody>
+             </table>
+           </div>
+         </div>
+       </div>
+
+
+
+    </div>
+<div id="aboutUs" class="p-2 flex-fill bd-highlight col-6">
+  <!--<hide">    <div id="aboutUs" class="col-6" align="center"> </hide>-->
+
+      <div style="display:none;" id="row-miners">
+        <div class="row">
+          <ul id="navigation" align="center">
+            <li class="nav"><a href="./?page=stats&#"><i class="icon ion-ios-pulse navicon"></i> stats</a></li>
+            <li class="nav"><a href="./?page=stats&#miners"><i class="icon ion-ios-people-outline navicon"></i> miners</a></li>
+
+            <li class="nav"><a href="./?page=stats&#miningcalculator"><i class="icon ion-ios-calculator-outline navicon"></i> mining calculator<!-- <span style="color:#FF1744;">(new)</span>--></a></li>
+
+            <li class="nav"><a href="./?page=stats&#row-difficulty"><i class="icon ion-ios-flame-outline navicon"></i> difficulty / hashrate</a></li>
+            <li class="nav"><a href="./?page=stats&#reward-time"><i class="icon ion-ios-speedometer-outline navicon"></i> reward time / supply</a></li>
+          </ul>
+          <div class="column"><h4 class="add-top-padding"><a name="miners"></a>Block distribution since last retarget</h4></div>
+        </div>
+        <div class="row">
+          <div class="column column-5" style="max-width:40%;">
+            <div id="blockdistributionpiechart"></div>
+          </div>
+          <div class="column">
+            <table>
+              <!--<thead id="minerstats"> <tr> <th> </th> <th> </th> </tr> </thead>-->
+              <tbody id="minerstats">
+                <tr><td colspan="3">Loading info from the blockchain...</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div id="aboutUs" class="row" width="100%">
+      <div class="heading-title text-center">
+    <table class="table" style="background="fff align="center">
+    <tbody>
+    <tr>
+    <th class="text-center">
+
+                        <font align=center size=5 color=#0059a2>Token Hashrate {{ readableHashrate }}</font>
+
+    <br>
+
+                <canvas id="chart-hashrate" align="center" style="width:300%; height:550%;"></canvas>
+                </th>
+              </tr>
+                </table>
+              </tbody>
+                </div>
+              </div>
+
+
+
+
+
+    </div>
+
+  <!--<hide">   <div id="aboutUs" class="col-3" align="center"> </hide>-->
+<div id=:aboutUs class="p-2 flex-fill bd-highligh col-3">
+      <div id="transfer-list" class="event-list" v-cloak>
+
+
+          <table align="center">
+        <div class="text-center"><b>Recent Transfers</b></div>
+
+
+          <thead>
+            <tr >
+              <td class="has-text-centered"> Block </td>
+              <td class="has-text-centered"> Hash </td>
+
+            </tr>
+          </thead>
+          <tbody>
+          <tr v-for="(item, index) in list"   v-bind:class="{   'asset-row':true, 'acts-as-link':true, 'hover-shadow':true   } " >
+
+              <td class="row-cell has-text-centered  "> {{item.blockNumberFormatted}} </td>
+             <td class="row-cell has-text-centered "> <a v-bind:href="item.url"> {{item.hashFormatted}} </a> </td>
+
+          </tr>
+        </tbody>
+      </table>
+
+       </div>
+
+       <table class="table" align="center">
+         <tbody>
+       <tr v-for="(item, index) in list"   v-bind:class="{   'asset-row':true, 'acts-as-link':true, 'hover-shadow':true   } ">
+         <td class="text-center">
+           <hr>
+           <font size=6 color="#000"><b>Token Distribution</b></font><br>
+           <b><font class="wallets" size=4 align="center"></font></b><br>
+           <font size=2><strong>Top 1000 shown</strong></font>
+             <canvas id="pie-holders" style="width:5%; height:10%;"></canvas>
+           </td>
+         </tr>
+
+
+
+         </tbody>
+         </table>
+
+    </div>
+  </div>
+</div>
+
+
+</b>
+  <!--<hide">
+<div class="container tab-content shadow p3 mb-5 rounded">
+
+
+  <div class="row justify-content-center">
+
+
+
+
+
+
+  <font color="000000">
+
+
+      <div style="display:none;" id="row-reward-time" width="100%">
+        <div class="row">
+          <div class="column"><h4><a name="reward-time"></a>Average Reward Time and Supply over the last 60 days</h4></div>
+        </div>
+        <div class="row">
+          <div class="column">
+            <div id='blocktimestats'>
+              Loading info from the blockchain...
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="display:none;" id="row-difficulty">
+        <div class="row">
+          <div class="column"><h4><a name="difficulty"></a>Hashrate and Difficulty over the last 60 days</h4></div>
+        </div>
+        <div class="row">
+          <div class="column">
+            <div id='difficultystats'>
+              Loading info from the blockchain...
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <br>
+
+
+
+
+
+  </font>
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+</div>
+</hide>-->
+
+<div class="container tab-content shadow p3 mb-5 rounded>">
+
+
+  <div class="row justify-content-center">
+
+
+
+    <div class="col-2-lg">
+
+    </div>
+
+
+  <font color="000000">
+    <div class="col-6-lg">
+      <div style="display:none;" id="row-miningcalculator">
+        <div class="row">
+          <div class="column"><h4><a name="miningcalculator"></a>Mining calculator</h4></div>
+        </div>
+        <div id="editor">
+          <div class="row">
+            <div class="column">
+              <div class="container">
+                <div class="row">
+                  <div class="column">
+                    <label for="hashrateField">Your Hashrate:</label>
+                    <input type="text" :value="hashrate" @input="updateHashrate" id="hashrateField" onfocus="this.select()" autofocus></input>
+                    <select :value="units" @input="updateUnits" id="unitField">
+                      <option value="1">H/s</option>
+                      <option value="1e3">Kh/s</option>
+                      <option value="1e6">Mh/s</option>
+                      <option value="1e9">Gh/s</option>
+                      <option value="1e12">Th/s</option>
+                      <option value="1e15">Eh/s</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="column">
+                    <label for="poolFeeField" class="add-top-padding-2">Pool Fee:</label>
+                    <input type="text" :value="poolfee" @input="updatePoolFee" id="poolFeeField" onfocus="this.select()" autofocus></input><span style="margin-left:10px;line-height: 40px;">percent</span>
+                  </div>
+                  <div class="column">
+                      <label for="mintFailureRateField" class="add-top-padding-2">Mint Failure Rate: <i class="icon ion-ios-help-outline helpicon tip" data-tip="Even a perfect setup will occasionally fail to mint a block. This is similar to 'stale blocks' in the Bitcoin blockchain. Failure rates can range from 1.5%-15% depending on network block rate, latency, connection type, and luck." ></i></label>
+                    <input type="text" :value="mint_failure_rate" @input="updateMintFailureRate" id="mintFailureRateField" onfocus="this.select()" autofocus></input><span style="margin-left:10px;line-height: 40px;">percent</span>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="column">
+                    <label for="difficultyField" class="add-top-padding-2">Difficulty:</label>
+                    <input type="text" :value="difficulty" @input="updateDifficulty" id="difficultyField" onfocus="this.select()" autofocus></input>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="column" style="text-align: center;">
+                    <a class="button button-outline" v-on:click="useCurrentDiff" id="currentDiffButton">Use Current Diff</a>
+                  </div>
+                  <div class="column" style="text-align: center;">
+                    <a class="button button-outline tip" v-on:click="useNextDiff" id="nextDiffButton" data-tip="This is only an estimate, so don't be suprised when it changes.">Use Next Diff</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="column">
+              <!--<label for="poolMiningTable">Pool Mining</label>-->
+              <table id="poolMiningTable">
+                <thead>
+                  <tr>
+                    <th>Pool Mining</th>
+                    <th>Tokens</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Per Hour</td>
+                    <td>{{ Number((calculatedTokensPerDay / 24).toFixed(2)).toLocaleString() }}</td>
+                  </tr>
+                  <tr>
+                    <td>Per Day</td>
+                    <td>{{ Number((calculatedTokensPerDay * 1).toFixed(2)).toLocaleString() }}</td>
+                  </tr>
+                  <tr>
+                    <td>Per Week</td>
+                    <td>{{ Number((calculatedTokensPerDay * 7).toFixed(2)).toLocaleString() }}</td>
+                  </tr>
+                  <tr>
+                    <td>Per Month</td>
+                    <td>{{ Number((calculatedTokensPerDay * 30.4167).toFixed(2)).toLocaleString() }}</td>
+                  </tr>
+                </tbody>
+              </table>
+              <label for="soloMiningTimeSpan">Solo Mining</label>
+              <span id="soloMiningTimeSpan">{{ calculatedSoloTimePerBlock }} per block (average)</span>
+              <br /s>
+              <span id="soloMiningTimeSpan">{{ calculatedSoloTimePerTenBlocks }} per 10 blocks (more realistic)</span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="column"><h5 class="add-top-padding">How Does The Calculator Work?</h5></div>
+          </div>
+          <div class="row">
+            <div class="column">
+              <p>
+                At its heart is the standard hashrate equation:
+
+                  time to solve a block in seconds $= {2^22⋅\difficulty}/\hashrate$
+                  <br />
+                  → blocks per second $= \hashrate/{2^22⋅\difficulty}$
+                  <br />
+                  → tokens per day $=({50\tokens}/\text"block")({60\seconds}/\text"minute")({60\minutes}/\text"hour")({24\hours}/\text"day")\hashrate/{2^22⋅\difficulty}$
+                  <br />
+                  → tokens per day $={4320000⋅\hashrate}/{2^22⋅\difficulty}$
+
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </font>
+
+
+
+
+
+
+
+
+    <div class="col-2-lg">
+
+    </div>
+
+
+
+</div>
+
+
+</div>
+
+    <!--videoSTART->
+        <div class="text-center">
+        <iframe width="100%" height="400px"  src="https://www.youtube.com/embed/BK68jbXOIWY" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+    <!-videoEND-->
+
+
+
+
+  <body>
+    <script type="text/javascript">
+      var el = function(id){ return document.querySelector(id); };
+      /* 'safe' version if el that returns a dummy for non-existent elements */
+      var el_safe = function(id) {
+        let e = el(id);
+        if (e) {
+          return e;
+        } else {
+          return {};
+        }
+      }
+
+      var log = function(){
+        // 1. Convert args to a normal array
+        var args = Array.prototype.slice.call(arguments);
+        // 2. Prepend log prefix log string
+        args.unshift(((Date.now()-globalTimerStart)/1000).toFixed(2) + 's ');
+        // 3. Pass along arguments to console.log
+        console.log.apply(console, args);
+      }
+      var globalTimerStart = Date.now();
+
+      let searchParams = new URLSearchParams(window.location.search)
+    </script>
+    <div class="container tab-content shadow p3 mb-5 rounded">
+      <div class="bg-dark text-white">
+
+
+
+
+
+
+
+
+      <div style="display:none;" id="row-difficulty">
+        <div class="row">
+          <div class="column"><h4 class="add-top-padding"><a name="difficulty"></a>Hashrate and Difficulty over the last 60 days</h4></div>
+        </div>
+        <div class="row">
+          <div class="column">
+            <div id='difficultystats'>
+              Loading info from the blockchain...
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="display:none;" id="row-reward-time">
+        <div class="row">
+          <div class="column"><h4 class="add-top-padding"><a name="reward-time"></a>Average Reward Time and Supply over the last 60 days</h4></div>
+        </div>
+        <div class="row">
+          <div class="column">
+            <div id='blocktimestats'>
+              Loading info from the blockchain...
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="row-footer">
+        <div class="row add-top-padding add-bottom-padding-5">
+          <div class="column">
+            Data fetched at:
+            <span id="LastUpdatedTime">00:00:00</span>
+            <div style="font-size:0.875em;">
+              0xBitcoin Stats
+              <span id="footerversion">
+                v0.0.0
+              </span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+<!--Block explorer START-->
+
+
+
+        <!--Block explorer END-->
+
+
+        <!--fundraiser bar START->
+
+
+        	<div class="container">
+        			<div class="column justify-content-center text-center">
+
+        									<table class="table">
+        									 	<tbody>
+        											<th align=center>
+                                <tr>
+        												<br>
+                                <p align=center>
+        												<h4>ETH Progress Bar</h4>
+                              </p>
+        													<br>
+        													<br>
+                                </tr>
+
+
+                                  <tr>
+        												<div class="tab-content" id="pills-tabContent">
+        													<div class="tab-pane fade show active" id="pills-deposit" role="tabpanel" aria-labelledby="pills-deposit-tab">
+        														<div class="table-responsive">
+        																	<div id="fundraiser-progress-container">
+        																		<div id="fundraiser-progress">
+        																			<div id="fundraiser-progress-bar"></div>
+        																		</div>
+        																	</div>
+
+        														</div>
+        													</div>
+        												</div>
+                              </tr>
+                              </th>
+
+        										</tbody>
+        									</table>
+        								</div>
+        							</div>
+
+
+        								</div>
+                      </section>
+                      <br>
+                      <br>
+                      <br>
+
+        <!-fundraiser bar END-->
+
+
+
+
+
+
+
+
+
+
+      <footer id="footer" class="footer">
+   <div class=" ">
+     <div class="content has-text-centered">
+
+         <p>
+           <font color="#ff0000">
+           <b>Show some love</b>
+             <br>
+            <a href="https://etherscan.io/address/0xD1AB10ea23535Fb2A5C5395278634FF66CaeB0c8" target="_blank"><img src="/app/assets/img/heart.png" width="30" height="30"> 0xD1AB10ea23535Fb2A5C5395278634FF66CaeB0c8</a></font>
+            </p>
+
+          <br>
+          <font size="1">
+          The source code is licensed
+         <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
+         is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
+         </font>
+
+     </div>
+   </div>
+
+</footer>
+
+
+      <script type="text/javascript" src="app/views/js/ethereumjs-testrpc.js"></script>
+      <script type="text/javascript" src="app/views/js/ethjs.js"></script>
+      <script type="text/javascript" src="app/views/js/abi.js"></script>
+      <script type="text/javascript" src="app/views/js/main.js"></script>
+      <script type="text/javascript" src="app/views/js/graphs.js"></script>
+      <script type="text/javascript" src="app/views/js/mining-calculator.js"></script>
+
+      <script type="text/javascript">
+
+        function initPage() {
+          let searchParams = new URLSearchParams(window.location.search)
+
+          if(searchParams.has('reload')) {
+            var time = searchParams.get('reload');
+            setTimeout(function(){
+              location.reload()
+            },time*60000)
+          }
+
+
+          /* hack; need to add to UI */
+          if(searchParams.has('downloadCsvHours')) {
+            var hours = searchParams.get('downloadCsvHours');
+            loadAllStats(stats);
+
+            function loadCSVWhenReady() {
+              if(areAllBlockchainStatsLoaded(stats)) {
+                getMinerInfoCSV(eth, stats, hours);
+              } else {
+                setTimeout(()=>{ loadCSVWhenReady() }, 100);
+              }
+            }
+
+            setTimeout(()=>{ loadCSVWhenReady() }, 0);
+            return;
+          }
+          /* end hack; need to add to UI */
+
+          if(!searchParams.has('page')
+            || searchParams.get('page') == 'stats') {
+            if(!searchParams.has('page')){
+              addToURL('?page=stats&');
+            }
+            log('STATS selected');
+            $('#row-statistics').show(); // may not need this
+            $('#row-miners').show(); // may not need this
+            $('#row-blocks').show();
+            $("#row-miningcalculator").show();
+            {
+              log('GRAPHS selected');
+              let days = 60;
+              let points = 60;
+              $(document).attr("title", "Graphs - 0xBitcoin Statistics");
+              if(searchParams.get('days')) {
+                days = searchParams.get('days');
+              }
+              if(searchParams.get('points')) {
+                points = searchParams.get('points');
+              }
+              $('#row-difficulty').show();
+              $('#row-reward-time').show();
+              updateGraphData(days, points);
+            }
+             // may not need this
+            //$(document).attr("title", "0xBitcoin Statistics");
+            el('#statistics').innerHTML = '';
+            updateAndDisplayAllStats();
+          }else if(searchParams.get('page') == 'stats') {
+            log('MININGCALCULATOR selected');
+            $(document).attr("title", "Mining Calculator - 0xBitcoin Statistics");
+            $("#row-miningcalculator").show();
+            loadAllStats();
+          }else if(searchParams.get('page') == 'stats') {
+            log('GRAPHS selected');
+            let days = 60;
+            let points = 60;
+            $(document).attr("title", "Graphs - 0xBitcoin Statistics");
+            if(searchParams.get('days')) {
+              days = searchParams.get('days');
+            }
+            if(searchParams.get('points')) {
+              points = searchParams.get('points');
+            }
+            $('#row-difficulty').show();
+            $('#row-reward-time').show();
+            updateGraphData(days, points);
+          }
+          updateLastUpdatedTime();
+        }
+
+        try {
+          $(document).ready(function() {
+             log("DOMready");
+            /* initialize tipr tooltips */
+            $('.tip').tipr({
+                'speed': 800,
+                //'mode': 'above',
+                //'space': 500
+            });
+          });
+        } catch (err) {
+          log('failed to set DOMready fn. Jquery load error?');
+          el('#statistics').innerHTML = "Sorry, failed to load jquery. Try again later.";
+          el('#difficultystats').innerHTML = "Sorry, failed to load jquery. Try again later.";
+          fail;
+        } finally {
+          initPage();
+        }
+      </script>
+</div>
+  <script type="text/javascript" src="/bundle.js"></script></body>
+</html>
