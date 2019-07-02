@@ -9,6 +9,10 @@ html
 
 
 }
+body {
+    background: #e2e2e2;
+    //color: #777777;
+}
 
 a
 {
@@ -245,7 +249,8 @@ a
 
 .padding-md
 {
-  padding: 1em;
+  padding:5px;
+  padding: 10em;
 }
 
 .flex-bar
@@ -267,7 +272,7 @@ a
 .attribute-row
 {
   text-overflow: ellipsis;
- 
+
 white-space: nowrap;
 overflow: hidden;
 }
@@ -302,6 +307,7 @@ overflow: hidden;
 .row-cell
 {
   padding:5px;
+  text-align: center;
 }
 
 

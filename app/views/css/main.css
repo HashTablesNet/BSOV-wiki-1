@@ -9,6 +9,12 @@ td > div {
   white-space: nowrap;
 }
 */
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    line-height: 24px;
+    color: #777777;
+}
 
 img.top-logo {
   float: left;
@@ -64,6 +70,7 @@ ul.nav {
 }
 li.nav {
   display: inline;
+  text-align:center;
   white-space: nowrap;
 }
 #navigation li + li:before {

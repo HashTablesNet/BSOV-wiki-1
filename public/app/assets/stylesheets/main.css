@@ -11938,7 +11938,7 @@ body {
   font-family: 'Roboto', sans-serif;
   font-size: 15px;
   line-height: 24px;
-  color: #777777; }
+  color: #0059a2; }
 
 h1,
 h2,
@@ -13000,7 +13000,13 @@ footer p.sucess-message {
   padding-top: 20px;
   padding-bottom: 20px; }
 
+.navbar {
+  background: #fafafa;
+  color: #fafafa; }
+
 .navbar-container {
+  background: #fafafa;
+  color: #fafafa;
   max-width: 1000px;
   margin: 0 auto;
   align-items: stretch;
@@ -13016,6 +13022,7 @@ footer p.sucess-message {
   padding-left: 50px; }
 
 .has-dropdown.is-active .navbar-dropdown {
+  background: #fff;
   display: none; }
 
 @media screen and (max-width: 720px) {
@@ -13024,10 +13031,15 @@ footer p.sucess-message {
     height: 220px; } }
 
 .acts-as-links {
-  cursor: pointer; }
+  cursor: pointer;
+  background: #fafafa;
+  color: #fafafa; }
 
 html {
   font-family: "Arial, Helvetica, sans-serif"; }
+
+body {
+  background: #e2e2e2; }
 
 a {
   color: #ff7209; }
@@ -13152,7 +13164,8 @@ a {
   max-width: 200px; }
 
 .padding-md {
-  padding: 1em; }
+  padding: 5px;
+  padding: 10em; }
 
 .flex-bar {
   align-items: stretch;
@@ -13188,7 +13201,8 @@ a {
   font-family: 'Roboto', sans-serif; }
 
 .row-cell {
-  padding: 5px; }
+  padding: 5px;
+  text-align: center; }
 
 .order-row {
   width: 280px;

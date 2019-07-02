@@ -4,9 +4,18 @@
   padding-bottom: 20px;
 }
 
+.navbar
+{
 
+  background: #fafafa;
+  color: #fafafa;
+
+}
 .navbar-container
 {
+
+  background: #fafafa;
+  color: #fafafa;
 
   max-width: 1000px;
   margin: 0 auto;
@@ -23,6 +32,7 @@
 {
   padding-right: 50px;
 
+
 }
 
 .navbar-end
@@ -34,11 +44,18 @@
 {
   .navbar-dropdown
   {
+
+    background: #fff;
     display: none;
   }
 
 }
 
+
+.dropdown-button
+{
+
+}
 
 .youtube-mining-tutorial
 {
@@ -55,6 +72,8 @@
 .acts-as-links
 {
   cursor:pointer;
+  background: #fafafa;
+  color: #fafafa;
 }
 
 
@@ -66,9 +85,12 @@
 .navbar-menu
 {
 
+
+
 }
 
 .navbar-item
 {
+
 
 }

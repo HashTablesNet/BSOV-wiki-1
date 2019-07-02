@@ -1,4 +1,5 @@
 
+
 function addToURL(value){
   if (history.pushState) {
     var newurl = window.location.protocol + "//" + window.location.host + window.location.pathname + value;
@@ -6,7 +7,18 @@ function addToURL(value){
   }
 }
 
+$(document).ready(function() {
+    var url = window.location.href;
+    console.log(url);
+    if( url.indexOf('#') < 0 ) {
+        window.location.replace(url + "#");
+    } else {
+        window.location.replace(url);
+    }
+});
+
 const version = "v2.0.1";
+
 
 log('0xBitcoin Stats', version);
 el('#footerversion').innerHTML = version;
@@ -103,8 +115,8 @@ function goToURLAnchor() {
      reason the viewport is forced to the top when creating the charts */
   if (window.location.hash.search('#difficulty') != -1) {
     // this one isn't really necessary because diffigulty graph is at top of screen
-    //var targetOffset = $('#row-difficulty').offset().top;
-    //$('html, body').animate({scrollTop: targetOffset}, 500);
+    var targetOffset = $('#row-difficulty').offset().top;
+    $('html, body').animate({scrollTop: targetOffset}, 500);
   } else if (window.location.hash.search('#reward-time') != -1) {
     var targetOffset = $('#row-reward-time').offset().top;
     $('html, body').animate({scrollTop: targetOffset}, 500);
@@ -114,7 +126,7 @@ function goToURLAnchor() {
   }else if (window.location.hash.search('#blocks') != -1) {
     var targetOffset = $('#row-blocks').offset().top;
     $('html, body').animate({scrollTop: targetOffset}, 500);
-  }else if (window.location.hash.search('#miningcalculator') != -1) {
+  //}else if (window.location.hash.search('#miningcalculator') != -1) {
     // not necessary; calc is at top of screen
     //var targetOffset = $('#row-miningcalculator').offset().top;
     //$('html, body').animate({scrollTop: targetOffset}, 500);

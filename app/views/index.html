@@ -2,6 +2,7 @@
 <html>
   <head>
 
+
     <!--Bootstrap Stylesheet-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous"/>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
@@ -35,7 +36,9 @@
 
   </head>
   <body>
-    <div class="bg-light">
+
+
+    <div class="bg-transparent">
 
 
   <%= require('html-loader!./templates/navbar.html') %>
@@ -48,13 +51,10 @@
 
 
         <div class="jumbo-logo-container">
+<a href="/">
+          <img width="586" height="110" src="app/assets/img/0xbtcwiki.png" class="img-fluid" alt="Responsive image">
+</a>
 
-          <img :src="jumboLogo" height=240px width=240px></img>
-
-            <div class="subtitle font-roboto"><font size=8 color="d40000">SAMPLE UNFINISHED</font><br>
-              <font size=4 color="d40000">Stats page and block explorer</font>
-
-            </div>
 
 
 
@@ -83,7 +83,7 @@
 
 
       <div id="mint-list" class="event-list" v-cloak>
-        <div class="text-center" ><b>Recent Mints</b></div>
+        <div class="text-center" ><b><font color="000"><h5>Recent Mints</h5></font></b></div>
 
         <table align="center">
           <thead>
@@ -105,21 +105,26 @@
 
        </div>
 
-       <br>
+
+       <hr>
 
        <div style="display:none;" id="row-statistics">
          <div class="row">
-           <div class="column"><h4 class="add-top-padding-5">Current Contract Status</h4></div>
+           <div class="is-centered">
+           <div class="column"><h3 class="add-top-padding-4"><font color="000">Current Contract Stats</font></h3></div>
+         </div>
          </div>
          <div class="row">
            <div class="column">
              <table>
                <!--<thead> <tr> <th> </th> <th> </th> </tr> </thead>-->
+
                <tbody id="statistics">
                  <tr v-for="(item, index) in list"   v-bind:class="{   'asset-row':true, 'acts-as-link':true, 'hover-shadow':true   } " >
                    <td colspan="2">Loading info from the blockchain...</td>
                  </tr>
                </tbody>
+
              </table>
            </div>
          </div>
@@ -133,19 +138,25 @@
 
       <div style="display:none;" id="row-miners">
         <div class="row">
-          <ul id="navigation" align="center">
-            <li class="nav"><a href="./?page=stats&#"><i class="icon ion-ios-pulse navicon"></i> stats</a></li>
-            <li class="nav"><a href="./?page=stats&#miners"><i class="icon ion-ios-people-outline navicon"></i> miners</a></li>
+          <div class="is-centered">
+          <ul id="navigation" class="text-center" align="center">
+            <li class="nav"><a href="#statistics"><i class="icon ion-ios-pulse navicon"></i> stats</a></li>
+            <li class="nav"><a href="#miners"><i class="icon ion-ios-people-outline navicon"></i> miners</a></li>
 
-            <li class="nav"><a href="./?page=stats&#miningcalculator"><i class="icon ion-ios-calculator-outline navicon"></i> mining calculator<!-- <span style="color:#FF1744;">(new)</span>--></a></li>
+  <!--<hide">      <li class="nav"><a href="./?page=stats&#miningcalculator"><i class="icon ion-ios-calculator-outline navicon"></i> mining calculator</a></li> </hide>-->
 
-            <li class="nav"><a href="./?page=stats&#row-difficulty"><i class="icon ion-ios-flame-outline navicon"></i> difficulty / hashrate</a></li>
-            <li class="nav"><a href="./?page=stats&#reward-time"><i class="icon ion-ios-speedometer-outline navicon"></i> reward time / supply</a></li>
+            <li class="nav"><a href="#row-difficulty"><i class="icon ion-ios-flame-outline navicon"></i> difficulty / hashrate</a></li>
+            <li class="nav"><a href="#reward-time"><i class="icon ion-ios-speedometer-outline navicon"></i> reward time / supply</a></li>
           </ul>
-          <div class="column"><h4 class="add-top-padding"><a name="miners"></a>Block distribution since last retarget</h4></div>
+        </div>
+
+          <br><br><br>
+
+    <div class="row">
+          <div class="col"><h4><a name="miners"></a><font color="000">Block distribution since last retarget</font></h4></div>
         </div>
         <div class="row">
-          <div class="column column-5" style="max-width:40%;">
+          <div class="col col-5" style="max-width:40%;">
             <div id="blockdistributionpiechart"></div>
           </div>
           <div class="column">
@@ -158,21 +169,23 @@
           </div>
         </div>
       </div>
+      </div>
 
+<br>
+<hr>
 
-
-      <div id="aboutUs" class="row" width="100%">
+      <div id="aboutUs" width="100%">
       <div class="heading-title text-center">
     <table class="table" style="background="fff align="center">
     <tbody>
     <tr>
     <th class="text-center">
 
-                        <font align=center size=5 color=#0059a2>Token Hashrate {{ readableHashrate }}</font>
+                        <font align=center size=5 color=#000>Token Hashrate {{ readableHashrate }}</font>
 
     <br>
 
-                <canvas id="chart-hashrate" align="center" style="width:300%; height:550%;"></canvas>
+                <canvas id="chart-hashrate" align="center" style="width:300%; height:600%;"></canvas>
                 </th>
               </tr>
                 </table>
@@ -192,7 +205,7 @@
 
 
           <table align="center">
-        <div class="text-center"><b>Recent Transfers</b></div>
+        <div class="text-center"><b><font color="000"><h5>Recent Transfers</font></h5></b></div>
 
 
           <thead>
@@ -302,20 +315,21 @@
 </div>
 </hide>-->
 
-<div class="container tab-content shadow p3 mb-5 rounded>">
+
+  <!--<hide">
+
+<div class="container bg-white padding-md tab-content shadow p3 mb-5 rounded">
 
 
   <div class="row justify-content-center">
 
 
 
-    <div class="col-2-lg">
 
-    </div>
 
 
   <font color="000000">
-    <div class="col-6-lg">
+    <div class="col-6-lg padding-md">
       <div style="display:none;" id="row-miningcalculator">
         <div class="row">
           <div class="column"><h4><a name="miningcalculator"></a>Mining calculator</h4></div>
@@ -365,7 +379,7 @@
               </div>
             </div>
             <div class="column">
-              <!--<label for="poolMiningTable">Pool Mining</label>-->
+
               <table id="poolMiningTable">
                 <thead>
                   <tr>
@@ -422,6 +436,7 @@
     </div>
   </font>
 
+</hide>-->
 
 
 
@@ -429,9 +444,6 @@
 
 
 
-    <div class="col-2-lg">
-
-    </div>
 
 
 
@@ -449,7 +461,7 @@
 
 
 
-  <body>
+
     <script type="text/javascript">
       var el = function(id){ return document.querySelector(id); };
       /* 'safe' version if el that returns a dummy for non-existent elements */
@@ -474,9 +486,9 @@
 
       let searchParams = new URLSearchParams(window.location.search)
     </script>
-    <div class="container tab-content shadow p3 mb-5 rounded">
-      <div class="bg-dark text-white">
+    <div class="container bg-white text-black tab-content shadow p3 mb-5 rounded">
 
+<font color="000">
 
 
 
@@ -525,7 +537,7 @@
 
         </div>
       </div>
-    </div>
+</font>
   </div>
 
 
@@ -639,7 +651,7 @@
           if(!searchParams.has('page')
             || searchParams.get('page') == 'stats') {
             if(!searchParams.has('page')){
-              addToURL('?page=stats&');
+              addToURL('');
             }
             log('STATS selected');
             $('#row-statistics').show(); // may not need this
@@ -647,10 +659,10 @@
             $('#row-blocks').show();
             $("#row-miningcalculator").show();
             {
-              log('GRAPHS selected');
+
               let days = 60;
               let points = 60;
-              $(document).attr("title", "Graphs - 0xBitcoin Statistics");
+
               if(searchParams.get('days')) {
                 days = searchParams.get('days');
               }
@@ -671,7 +683,7 @@
             $("#row-miningcalculator").show();
             loadAllStats();
           }else if(searchParams.get('page') == 'stats') {
-            log('GRAPHS selected');
+
             let days = 60;
             let points = 60;
             $(document).attr("title", "Graphs - 0xBitcoin Statistics");
