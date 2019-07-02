@@ -1,10 +1,6 @@
-### 0xBitcoin Explorer
+### 0xBTC.wiki
 
-A block explorer website that shows all transactions and accounts related to 0xbitcoin.  
+A 0xBitcoin stats page, block explorer and information resource.
 
 
-#### How it works 
-
-A geth --light node will run on the server.  Rails 5.2 in --api only mode will manage the backend database + api for the static frontend.   This database is Postgresql + redis.  
-
-The frontend will be static webpacked Vue.js + Html + SASS out of the /public folder which will be able to serve the content dynamically through the local Rails actioncable api.
+static webpacked Vue.js + Html + SASS running on rails 5.2
