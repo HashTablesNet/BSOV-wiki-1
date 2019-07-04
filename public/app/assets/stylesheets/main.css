@@ -12905,7 +12905,7 @@ Footer
   margin-bottom: 25px; }
 
 footer {
-  color: #fff;
+  /*  color: #fff; */
   background-color: #191b1f; }
 
 .footer-top {
@@ -12960,11 +12960,11 @@ footer {
   border-radius: 0 25px 25px 0; }
 
 #scrollUp {
-  background-color: #ff7209 !important;
-  border: 1px solid #ff7209 !important;
+  background-color: rgba(255, 114, 9, 0.7) !important;
+  border: 1px solid #002762 !important;
   border-radius: 8px;
   bottom: 30px;
-  color: #ffffff;
+  color: #002762;
   height: 45px;
   line-height: 3;
   right: 30px;

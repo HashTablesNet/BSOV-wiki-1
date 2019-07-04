@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+
     <title>0xBTC.wiki</title>
 
     <!--videoSTART-> <meta name="viewport" content="width=device-width, initial-scale=1"> <!-videoEND-->
@@ -11,7 +11,40 @@
 
 <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"/>
 
-<title>0xBTC.wiki</title>
+
+
+
+<!--Bootstrap Stylesheet-->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous"/>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+<!-- jquery is here because scripts need it early on. may want to move other js imports here. -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<!-- jqMath allows for real equation formatting -->
+<script src="app/views/js/jqmath-etc-0.4.6.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<!-- note: lodash is only used for _.debounce() -->
+<script src="https://cdn.jsdelivr.net/npm/lodash@4.17.10/lodash.min.js"></script>
+<script src="app/views/js/tipr.min.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-117165354-1"></script>
+<script type="text/javascript" src="app/views/js/gtag.js"></script>
+
+
+
+
+
+    <link rel="stylesheet" type="text/css" href="app/views/css/jqmath-0.4.3.css">
+
+    <link rel="stylesheet" type="text/css" href="app/views/css/main.css">
+    <link rel="stylesheet" type="text/css" href="app/views/css/themes/dark1.css">
+    <link rel="stylesheet" type="text/css" href="app/views/css/ionicons.css">
+    <link rel="stylesheet" type="text/css" href="app/views/css/tipr-corso.css">
+
 
 <style>
   #fundraiser-progress-container {
@@ -38,7 +71,7 @@
 
   <link href="/app/assets/stylesheets/main.css" rel="stylesheet"></head>
 
-
+<body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbar">
 <div class="container">
 <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbar">
@@ -427,7 +460,7 @@
 
       <div id="tx-data" class="tx-data">
         <div   class="subtitle">
-          Tx Hash: {{ txData.hash }}
+          Tx Hash: <a v-bind:href="txData.etherscanUrl" target="blank">{{ txData.hash }}</a>
         </div>
 
         <div class="attributes box">
@@ -457,10 +490,11 @@
             Raw Input: {{ txData.input }}
           </div>
           <div class="attribute-row">
-            <a v-bind:href="txData.etherscanUrl">  Etherscan Link  </a>
+            <a v-bind:href="txData.etherscanUrl" target="blank">  Etherscan Link  </a>
           </div>
 
         </div>
+    <a href="javascript:history.back()">🢀 Back</a>
 
 
        </div>
@@ -478,7 +512,8 @@
 
 
       <footer id="footer" class="footer">
-   <div class=" ">
+   <div class="bg-light">
+     <a id="scrollUp" href="#top" style="position: fixed; z-index: 2147483647;"><i class="icon-arrow-up"></i></a>
      <div class="content has-text-centered">
 
          <p>
@@ -502,7 +537,7 @@
 
 
 
-      <a id="scrollUp" href="#top" style="position: fixed; z-index: 2147483647;"><i class="icon-arrow-up"></i></a>
+
 
   <script type="text/javascript" src="/bundle.js"></script></body>
 </html>
