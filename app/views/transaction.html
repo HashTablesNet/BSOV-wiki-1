@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+
     <title><%= htmlWebpackPlugin.options.title %></title>
 
     <%= require('html-loader!./templates/head.html') %>
@@ -9,7 +9,7 @@
 
   </head>
 
-
+<body>
   <%= require('html-loader!./templates/navbar.html') %>
 
 
@@ -27,7 +27,7 @@
 
       <div id="tx-data" class="tx-data">
         <div   class="subtitle">
-          Tx Hash: {{ txData.hash }}
+          Tx Hash: <a v-bind:href="txData.etherscanUrl" target="blank">{{ txData.hash }}</a>
         </div>
 
         <div class="attributes box">
@@ -57,10 +57,11 @@
             Raw Input: {{ txData.input }}
           </div>
           <div class="attribute-row">
-            <a v-bind:href="txData.etherscanUrl">  Etherscan Link  </a>
+            <a v-bind:href="txData.etherscanUrl" target="blank">  Etherscan Link  </a>
           </div>
 
         </div>
+    <a href="javascript:history.back()">🢀 Back</a>
 
 
        </div>
@@ -80,7 +81,7 @@
       <%= require('html-loader!./templates/footer.html') %>
 
 
-      <a id="scrollUp" href="#top" style="position: fixed; z-index: 2147483647;"><i class="icon-arrow-up"></i></a>
+
 
   </body>
 </html>

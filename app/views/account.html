@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+
     <title><%= htmlWebpackPlugin.options.title %></title>
 
     <%= require('html-loader!./templates/head.html') %>
 
 
   </head>
+  <body>
 
+<div class="bg-transparent">
 
 
   <%= require('html-loader!./templates/navbar.html') %>
@@ -17,23 +19,23 @@
 
 
   <div class="page-container" id="account">
+    <section class="hero">
+      <div class="hero-body">
 
 
 
 
-        <section class="hero   ">
-          <div class="hero-body">
 
 
+<div class="whitespace-md"></div>
 
           <div class="whitespace-md"></div>
 
 
             <div id="account-data" class="account-data">
               <div   class="subtitle">
-                Account {{ address }}
+              Account   <a v-bind:href="etherscanUrl" target="blank">{{ address }}</a>
               </div>
-
 
 
               <div class="attributes box">
@@ -47,15 +49,23 @@
 
 
                 <div class="attribute-row">
-                  <a v-bind:href="etherscanUrl"> Etherscan Link </a>
+                  <a v-bind:href="etherscanUrl" target="blank"> Etherscan Link </a>
 
                 </div>
               </div>
+<!--
+  <script>
+  document.write('<a href="' + document.referrer + '">🢀 Back</a>');
+</script>
+-->
 
-
+<a href="javascript:history.back()">🢀 Back</a>
              </div>
 
+             <div class="whitespace-md"></div>
+             <div class="whitespace-md"></div>
 
+<!--
                    <div class="whitespace-md"></div>
 
                    <div class="columns">
@@ -121,14 +131,20 @@
                    </div>
 
 
-          </div>
-        </section>
 
 
 
+-->
 
+</div>
+</section>
     </div>
+    <%= require('html-loader!./templates/footer.html') %>
 
 
+
+</div>
+
+</body>
 
 </html>

@@ -3,36 +3,10 @@
   <head>
 
 
-    <!--Bootstrap Stylesheet-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous"/>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
 
-    <!-- jquery is here because scripts need it early on. may want to move other js imports here. -->
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <!-- jqMath allows for real equation formatting -->
-    <script src="app/views/js/jqmath-etc-0.4.6.min.js" charset="utf-8"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-    <!-- note: lodash is only used for _.debounce() -->
-    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.10/lodash.min.js"></script>
-    <script src="app/views/js/tipr.min.js"></script>
-
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-117165354-1"></script>
-    <script type="text/javascript" src="app/views/js/gtag.js"></script>
-
-
-
+<title><%= htmlWebpackPlugin.options.title %></title>
         <%= require('html-loader!./templates/head.html') %>
 
-        <link rel="stylesheet" type="text/css" href="app/views/css/jqmath-0.4.3.css">
-
-        <link rel="stylesheet" type="text/css" href="app/views/css/main.css">
-        <link rel="stylesheet" type="text/css" href="app/views/css/themes/dark1.css">
-        <link rel="stylesheet" type="text/css" href="app/views/css/ionicons.css">
-        <link rel="stylesheet" type="text/css" href="app/views/css/tipr-corso.css">
 
   </head>
   <body>
@@ -92,7 +66,7 @@
 
 
       <div id="mint-list" class="event-list" v-cloak>
-        <div class="text-center" ><b><font color="000"><h5>Recent Mints</h5></font></b></div>
+        <div class="text-center" ><b><font color="#2b2b2b"><h5>Recent Mints</h5></font></b></div>
 
         <table align="center">
           <thead>
@@ -120,7 +94,7 @@
        <div style="display:none;" id="row-statistics">
          <div class="row">
            <div class="is-centered">
-           <div class="column"><h3 class="add-top-padding-4"><font color="000">Current Contract Stats</font></h3></div>
+           <div class="column"><b><h4 class="add-top-padding-4"><font color="#2b2b2b">Current Contract Stats</font></h4></b></div>
          </div>
          </div>
          <div class="row">
@@ -165,7 +139,7 @@
           <br>
 
     <div class="row">
-          <div class="col"><h4><a name="miners"></a><font color="000">Block distribution since last retarget</font></h4></div>
+          <div class="col"><h4><a name="miners"></a><font color="#2b2b2b">Block distribution since last retarget</font></h4></div>
         </div>
         <div class="row">
           <div class="col col-5" style="max-width:40%;">
@@ -185,25 +159,32 @@
 
 <br>
 <hr>
+<div id="aboutUs" width="100%">
+<div class="row">
+  <div class="is-centered">
 
-      <div id="aboutUs" width="100%">
+
       <div class="heading-title text-center">
     <table class="table" style="background="fff align="center">
     <tbody>
     <tr>
     <th class="text-center">
 
-                        <font align=center size=5 color=#000>Token Hashrate {{ readableHashrate }}</font>
+                        <font align=center><b><h4>Token Hashrate {{ readableHashrate }}</h4></b></font>
 
     <br>
 
-                <canvas id="chart-hashrate" align="center" style="position: relative; max-height:200%; width:100%"></canvas>
+                <canvas id="chart-hashrate" align="center" style="position: relative; max-height:100%; width:200%"></canvas>
                 </th>
               </tr>
                 </table>
               </tbody>
                 </div>
               </div>
+</div>
+</div>
+
+<br>
 
 
 
@@ -217,7 +198,7 @@
 
 
           <table align="center">
-        <div class="text-center"><b><font color="000"><h5>Recent Transfers</font></h5></b></div>
+        <div class="text-center"><b><h5><font color="#2b2b2b">Recent Transfers</font></h5></b></div>
 
 
           <thead>
@@ -244,7 +225,7 @@
        <tr v-for="(item, index) in list"   v-bind:class="{   'asset-row':true, 'acts-as-link':true, 'hover-shadow':true   } ">
          <td class="text-center">
            <hr>
-           <font size=6 color="#000"><b>Token Distribution</b></font><br>
+           <b><h4>Token Distribution</h4></b><br>
            <b><font class="wallets" size=4 align="center"></font></b><br>
            <font size=2><strong>Top 1000 shown</strong></font>
 
@@ -336,6 +317,123 @@
 
 
   <div class="row justify-content-center">
+
+
+
+
+
+
+  <div class="container is-centered">
+      <form>
+
+        <div style="display:none;" id="row-miningcalculator">
+          <font color="2b2b2b">
+            <h4><a name="miningcalculator"></a>Mining calculator</h4>
+          <div id="editor">
+
+  <div class="form-row">
+  <div class="form-group">
+      <label for="hashrateField">Your Hashrate:</label><br>
+      <input type="text" :value="hashrate" @input="updateHashrate" id="hashrateField" onfocus="this.select()" autofocus></input>
+      <select :value="units" @input="updateUnits" id="unitField">
+        <option value="1">H/s</option>
+        <option value="1e3">Kh/s</option>
+        <option value="1e6">Mh/s</option>
+        <option value="1e9">Gh/s</option>
+        <option value="1e12">Th/s</option>
+        <option value="1e15">Eh/s</option>
+      </select>
+  </div>
+  </div>
+
+  <div class="form-row">
+  <div class="form-group col-md-3">
+      <label for="poolFeeField" class="add-top-padding-2">Pool Fee:</label><br>
+      <input type="text" :value="poolfee" @input="updatePoolFee" id="poolFeeField" onfocus="this.select()" autofocus></input>
+      <span style="margin-left:10px;line-height: 40px;">percent</span>
+  </div>
+  <div class="form-group col-md-3">
+    <label for="mintFailureRateField" class="add-top-padding-2">Mint Failure Rate: <i class="icon ion-ios-help-outline helpicon tip" data-tip="Even a perfect setup will occasionally fail to mint a block. This is similar to 'stale blocks' in the Bitcoin blockchain. Failure rates can range from 1.5%-15% depending on network block rate, latency, connection type, and luck." ></i></label><br>
+    <input type="text" :value="mint_failure_rate" @input="updateMintFailureRate" id="mintFailureRateField" onfocus="this.select()" autofocus></input>
+    <span style="margin-left:10px;line-height: 40px;">percent</span>
+  </div>
+  </div>
+
+  <div class="form-group">
+    <label for="difficultyField" class="add-top-padding-2">Difficulty:</label><br>
+    <input type="text" :value="difficulty" @input="updateDifficulty" id="difficultyField" onfocus="this.select()" autofocus></input>
+  </div>
+
+  <div class="form-row">
+  <div class="form-group col-md-3 float-left" style="text-align: center;">
+    <a class="button button-outline" v-on:click="useCurrentDiff" id="currentDiffButton">Use Current Diff</a>
+  </div>
+  <div class="form-group col-md-3 float-right" style="text-align: center;">
+  <a class="button button-outline tip" v-on:click="useNextDiff" id="nextDiffButton" data-tip="This is only an estimate, so don't be suprised when it changes.">Use Next Diff</a>
+  </div>
+  </div>
+
+  <div class="column">
+
+    <table id="poolMiningTable">
+      <thead>
+        <tr>
+          <th>Pool Mining</th>
+          <th>Tokens</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Per Hour</td>
+          <td>{{ Number((calculatedTokensPerDay / 24).toFixed(2)).toLocaleString() }}</td>
+        </tr>
+        <tr>
+          <td>Per Day</td>
+          <td>{{ Number((calculatedTokensPerDay * 1).toFixed(2)).toLocaleString() }}</td>
+        </tr>
+        <tr>
+          <td>Per Week</td>
+          <td>{{ Number((calculatedTokensPerDay * 7).toFixed(2)).toLocaleString() }}</td>
+        </tr>
+        <tr>
+          <td>Per Month</td>
+          <td>{{ Number((calculatedTokensPerDay * 30.4167).toFixed(2)).toLocaleString() }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <label for="soloMiningTimeSpan">Solo Mining</label>
+    <span id="soloMiningTimeSpan">{{ calculatedSoloTimePerBlock }} per block (average)</span>
+    <br /s>
+    <span id="soloMiningTimeSpan">{{ calculatedSoloTimePerTenBlocks }} per 10 blocks (more realistic)</span>
+  </div>
+  <div class="row">
+  <div class="column"><h5 class="add-top-padding">How Does The Calculator Work?</h5></div>
+  </div>
+  <div class="row">
+  <div class="column">
+    <p>
+      At its heart is the standard hashrate equation:
+
+        time to solve a block in seconds $= {2^22⋅\difficulty}/\hashrate$
+        <br />
+        → blocks per second $= \hashrate/{2^22⋅\difficulty}$
+        <br />
+        → tokens per day $=({50\tokens}/\text"block")({60\seconds}/\text"minute")({60\minutes}/\text"hour")({24\hours}/\text"day")\hashrate/{2^22⋅\difficulty}$
+        <br />
+        → tokens per day $={4320000⋅\hashrate}/{2^22⋅\difficulty}$
+
+    </p>
+  </div>
+  </div>
+
+
+
+  </div>
+  </font>
+  </div>
+
+  </form>
+  </div>
 
 
 
