@@ -71,6 +71,8 @@ var navbarComponent = new Vue({
 })
 
 
+
+
 $(document).ready(function(){
 
 
