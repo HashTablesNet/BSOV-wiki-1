@@ -36,7 +36,7 @@
 <script type="text/javascript" src="app/views/js/gtag.js"></script>
 
 
-
+<meta name="viewport" content="width=600">
 
 
     <link rel="stylesheet" type="text/css" href="app/views/css/jqmath-0.4.3.css">
@@ -95,18 +95,21 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <a class="navbar-item" target="blank" href="https://0xbitcoin.org">
-            0xBTC Website
+          &nbsp; <i class="icon ion-ios-world-outline navicon"></i>&nbsp;  0xBTC Website
+          </a>
+          <a class="navbar-item" target="blank" href="https://0xbitcoin.foundation">
+          &nbsp; <i class="icon ion-ios-browsers-outline navicon"></i>&nbsp;  0xBitcoin Foundation
           </a>
           <a class="navbar-item "  target="blank" href="https://github.com/0xbitcoin/white-paper">
-            White Paper
+          &nbsp; <i class="icon ion-ios-paper-outline navicon"></i>&nbsp;  White Paper
           </a>
           <a class="navbar-item "  target="blank" href="https://etherscan.io/address/0xb6ed7644c69416d67b522e20bc294a9a9b405b31#code">
-            Smart Contract
+          &nbsp; <i class="icon ion-ios-gear-outline navicon"></i>&nbsp;  Smart Contract
           </a>
           <hr class="navbar-divider">
           <div class="navbar-image">
             <div class="has-text-centered">
-              <img :src="contractQR" height="72" width="72" style="max-height:72px"/>
+              <img :src="contractQR" height="100" width="100" style="max-height:100px"/>
             </div>
         </div>
         </div>
@@ -117,13 +120,19 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <a class="navbar-item "  target="blank" href="https://discord.gg/JGEqqmS">
-            Discord
+          &nbsp; <i class="icon ion-ios-chatboxes-outline navicon"></i>&nbsp;  Discord
           </a>
           <a class="navbar-item "  target="blank" href="https://reddit.com/r/0xbitcoin">
-            Subreddit
+          &nbsp; <i class="icon ion-social-reddit-outline navicon"></i>&nbsp;  Subreddit
           </a>
+          <a class="navbar-item "  target="blank" href="https://t.me/ZEROxBTC">
+          &nbsp; <i class="icon ion-ios-paperplane-outline navicon"></i>&nbsp;  Telegram
+          </a>
+          <a class="navbar-item" href="https://twitter.com/0xBTCFoundation" target="_blank">
+            &nbsp; <i class="icon ion-social-twitter-outline navicon"></i>&nbsp; Twitter
+            </a>
           <a class="navbar-item" target="blank" href="https://github.com/0xbitcoin">
-            Github
+          &nbsp; <i class="icon ion-social-github-outline navicon"></i>&nbsp;  Github
           </a>
         </div>
       </li>
@@ -480,9 +489,9 @@
         <nav>
           <div class="nav nav-tabs justify-content-center" id="nav-tab" role="tablist">
             <a class="nav-item nav-link active" id="stats-home-tab" data-toggle="tab" href="#stats-home" role="tab" aria-controls="stats-home" aria-selected="true">Stats</a>
-            <a class="nav-item nav-link" id="nav-blocks-tab" data-toggle="tab" href="#nav-blocks" role="tab" aria-controls="nav-blocks" aria-selected="false">Blocks</a>
-            <a class="nav-item nav-link" id="nav-erc918-tab" data-toggle="tab" href="#nav-erc918" role="tab" aria-controls="nav-erc918" aria-selected="false">ERC:918</a>
-            <a class="nav-item nav-link" id="nav-tokenmining-tab" data-toggle="tab" href="#nav-tokenmining" role="tab" aria-controls="nav-tokenmining" aria-selected="false">Token Mining</a>
+            <a class="nav-item nav-link" id="nav-blocks-tab" data-toggle="tab" href="#nav-blocks" role="tab" aria-controls="nav-blocks" aria-selected="false">Blocks Mined</a>
+            <a class="nav-item nav-link" id="nav-links-tab" data-toggle="tab" href="#nav-links" role="tab" aria-controls="nav-links" aria-selected="false">Links</a>
+            <a class="nav-item nav-link" id="nav-tokenmining-tab" data-toggle="tab" href="#nav-tokenmining" role="tab" aria-controls="nav-tokenmining" aria-selected="false">Token Mining?</a>
             <a class="nav-item nav-link" id="nav-software-tab" data-toggle="tab" href="#nav-software" role="tab" aria-controls="nav-software" aria-selected="false">Software</a>
           </div>
         </nav>
@@ -495,17 +504,18 @@
 
   <div class="row">
     <div class="col-md-12">
-
+  <hr>
         <div class="is-centered">
         <ul id="navigation" class="text-center" align="center">
           <li class="nav"><a href="#row-statistics"><i class="icon ion-ios-pulse navicon"></i>stats</a></li>
           <li class="nav"><a href="#holders"><i class="icon ion-ios-pie-outline navicon"></i>distribution</a></li>
 
+
 <!--<hide">      <li class="nav"><a href="./?page=stats&#miningcalculator"><i class="icon ion-ios-calculator-outline navicon"></i> mining calculator</a></li> </hide>-->
 
           <li class="nav"><a href="#row-difficulty"><i class="icon ion-ios-flame-outline navicon"></i> difficulty / hashrate</a></li>
           <li class="nav"><a href="#reward-time"><i class="icon ion-ios-speedometer-outline navicon"></i> reward time / supply</a></li>
-          <hr>
+
         </ul>
       </div>
     </div>
@@ -513,7 +523,7 @@
 
 
 
-
+<br>
   <!--<hide">  <div id="home" class="row" width="100%"> </hide>-->
   <div id="home">
 <div class="row justify-content-sm-center">
@@ -1179,7 +1189,7 @@
 
 </div>
 
-<div class="tab-pane fade" id="nav-erc918" role="tabpanel" aria-labelledby="nav-erc918-tab">
+<div class="tab-pane fade" id="nav-links" role="tabpanel" aria-labelledby="nav-links-tab">
 
 
   <div class="container bg-white tab-content shadow p3 mb-5 rounded">
@@ -1187,23 +1197,11 @@
     <div class="row">
   <div class="col-lg-12">
 
-    <font color="#ff0000"><h5 class="card-title">EIP:918 Mineable Token standard</h5></font>
+    <font color="#ff0000"><h5 class="card-title">Links</h5></font>
     <div class="card-text">
     <div class="mygrid-wrapper-div">
 
-    <strong>What is ERC918?</strong>
-    <br><br>
-    <p>ERC918 is an Ethereum Improvement Proposal for standardizing mineable token distribution using Proof of Work.</p>
-    <br>
-    <p>The primary driver behind the standard is to address the very broken ICO model that currently plagues the Ethereum network. Token distribution via the ICO model and it’s derivatives has always been susceptible to illicit behavior by bad actors. New token projects are centralized by nature because a single entity must handle and control all of the initial coins and all of the the raised ICO money. By distributing tokens via an alternative ‘Initial Mining Offering’ (or IMO), the ownership of the token contract no longer belongs with the deployer at all and the deployer is ‘just another user.’ As a result, investor risk exposure utilizing a mined token distribution model is significantly diminished. This standard is intended to be standalone, allowing maximum interoperability with ERC20, ERC721, and future token standards.</p>
-    <br>
-    <p>The most effective economic side effect of Satoshi Nakamoto's desire to secure the original Bitcoin network with Proof of Work hash mining was tethering the coin to real computing power, thereby removing centralized actors. Transitioning the responsibility of work back onto individual miners, government organizations have no jurisdiction over the operation of a pure mined token economy. Oversight is removed from an equation whereby miners are providing economic effort in direct exchange of a cryptographic commodity. This facilitates decentralized distribution and establishes all involved parties as stakeholders. The ERC918 standard allows projects to be funded through decentralized computing power instead of centralized, direct-fiat conversion.</p>
-    <br>
-    <p>The Ethereum blockchain in its current state exists as a thriving ecosystem which allows any individual to store immutable records in a permission-less, invulnerable and transparent manner. Recently, there have been proposals to mitigate some initial ICO investment risks through the introduction of the DAICO model that relies on timed and automated value transfers via the smart contract tapping mechanism. However, this does not align a token smart contract as a non-security and still has the potential to put investors at risk if not implemented carefully, relying on centralized actors to be fair and community intended. Allowing users of the network direct access to tokens by performing computations as a proof of work supplies allows any smart contract to distribute a token in a safe and controlled manner similar to the release of a commodity.<p>
-    <br>
-    <p>As of 2017, all Ethereum token distribution methods were flawed and susceptible to Sybil attacks. A Sybil attack is a form of computer security attack where one person pretends to be many people with multiple computer accounts in order to manipulate a system in a malicious way. ICOs and airdrops are highly susceptible to these type of attacks so there is no way to verify that all ERC20 tokens distributed by the deployer were doled out fairly or unfairly. Proof of Work distribution is resistant to Sybil attacks. This means that ERC918 tokens are among the first trustless Ethereum tokens in the world. The distribution of ERC918 tokens is fair because they are allotted via an open, decentralized mathematical algorithm (that anyone can view on the mainnet blockchain) and not a centralized human monarchy.</p>
-    <br>
-    <p>ERC918's first incarnation (and inspiration) was the 0xBitcoin project that launched in early 2018. Since then, several projects have realized the standard in innovative and creative ways. Catether (0xCATE) erupted early and additionally mints payback tokens during transfer operations to offset gas costs. 0xGold and 0xLitecoin each implement the first on-chain merge-mining with 0xBitcoin and the Mineable Gem project extends the standard onto a non-fungible collectible artifacts, whereby each gem has a unique mining difficulty. The Mineables project is a newer initiative that provides users with the ability to create mineable ERC20 tokens on-chain without writing a line of code and includes a virtualized hashing artifact market that allows miners to purchase on-chain vGPUs to improve mining difficulty and rewards.</p>
+    ...
 
 
     </div>
@@ -1219,6 +1217,59 @@
 
 <div class="tab-pane fade" id="nav-tokenmining" role="tabpanel" aria-labelledby="nav-tokenmining-tab">
   <div class="container bg-white tab-content shadow p3 mb-5 rounded">
+
+    <br>
+
+    <div class="row">
+    <div class="col-lg-12">
+
+    <font color="#ff0000"><h5 class="card-title">What is 0xBitcoin?</h5></font>
+    <div class="card-text">
+    <div class="mygrid-wrapper-div">
+
+    <p><a href="https://etherscan.io/address/0xb6ed7644c69416d67b522e20bc294a9a9b405b31" target="_blank">0xBitcoin (0xBTC)</a> is the first mineable ERC20 token on Ethereum. It uses mining for distribution, unlike all previous ERC20 tokens which were assigned to the contract deployer upon creation. 0xBTC is the first implementation of the EIP918 mineable token standard (<a href="https://eips.ethereum.org/EIPS/eip-918" target="_blank">https://eips.ethereum.org/EIPS/eip-918</a>), which opened up the possibility of a whole new class of mineable assets on Ethereum. Without any ICO, airdrop, pre-mine, or founder’s reward, 0xBitcoin is arguably the most decentralized asset in the Ethereum ecosystem, including even Ether (ETH), which had a large ICO.</p>
+
+    <p>The goal of <a href="https://0xbitcoin.org"  target="_blank">0xBitcoin</a> is to be looked at as a currency and store of value asset on Ethereum. Its 21 million token hard cap and predictable issuance give it scarcity and transparency in terms of monetary policy, both things that Ether lacks. 0xBitcoin has certain advantages over PoW based currencies, such as compatibility with smart contracts and decentralized exchanges. In addition, 0xBTC cannot be 51% attacked (without attacking Ethereum), is immune from the “death spiral”, and will receive the benefits of scaling and other improvements to the Ethereum network.</p>
+
+  </div>
+  </div>
+
+  </div>
+  </div>
+
+  <hr>
+
+    <div class="row">
+    <div class="col-lg-12">
+
+    <font color="#ff0000"><h5 class="card-title">EIP:918 Mineable Token standard</h5></font>
+    <div class="card-text">
+    <div class="mygrid-wrapper-div">
+
+    <strong>What is ERC918?</strong>
+    <br>
+    <p>ERC918 is an Ethereum Improvement Proposal for standardizing mineable token distribution using Proof of Work.</p>
+
+    <p>The primary driver behind the standard is to address the very broken ICO model that currently plagues the Ethereum network. Token distribution via the ICO model and it’s derivatives has always been susceptible to illicit behavior by bad actors. New token projects are centralized by nature because a single entity must handle and control all of the initial coins and all of the the raised ICO money. By distributing tokens via an alternative ‘Initial Mining Offering’ (or IMO), the ownership of the token contract no longer belongs with the deployer at all and the deployer is ‘just another user.’ As a result, investor risk exposure utilizing a mined token distribution model is significantly diminished. This standard is intended to be standalone, allowing maximum interoperability with ERC20, ERC721, and future token standards.</p>
+
+    <p>The most effective economic side effect of Satoshi Nakamoto's desire to secure the original Bitcoin network with Proof of Work hash mining was tethering the coin to real computing power, thereby removing centralized actors. Transitioning the responsibility of work back onto individual miners, government organizations have no jurisdiction over the operation of a pure mined token economy. Oversight is removed from an equation whereby miners are providing economic effort in direct exchange of a cryptographic commodity. This facilitates decentralized distribution and establishes all involved parties as stakeholders. The ERC918 standard allows projects to be funded through decentralized computing power instead of centralized, direct-fiat conversion.</p>
+
+    <p>The Ethereum blockchain in its current state exists as a thriving ecosystem which allows any individual to store immutable records in a permission-less, invulnerable and transparent manner. Recently, there have been proposals to mitigate some initial ICO investment risks through the introduction of the DAICO model that relies on timed and automated value transfers via the smart contract tapping mechanism. However, this does not align a token smart contract as a non-security and still has the potential to put investors at risk if not implemented carefully, relying on centralized actors to be fair and community intended. Allowing users of the network direct access to tokens by performing computations as a proof of work supplies allows any smart contract to distribute a token in a safe and controlled manner similar to the release of a commodity.<p>
+
+    <p>As of 2017, all Ethereum token distribution methods were flawed and susceptible to Sybil attacks. A Sybil attack is a form of computer security attack where one person pretends to be many people with multiple computer accounts in order to manipulate a system in a malicious way. ICOs and airdrops are highly susceptible to these type of attacks so there is no way to verify that all ERC20 tokens distributed by the deployer were doled out fairly or unfairly. Proof of Work distribution is resistant to Sybil attacks. This means that ERC918 tokens are among the first trustless Ethereum tokens in the world. The distribution of ERC918 tokens is fair because they are allotted via an open, decentralized mathematical algorithm (that anyone can view on the mainnet blockchain) and not a centralized human monarchy.</p>
+
+    <p>ERC918's first incarnation (and inspiration) was the 0xBitcoin project that launched in early 2018. Since then, several projects have realized the standard in innovative and creative ways. Catether (0xCATE) erupted early and additionally mints payback tokens during transfer operations to offset gas costs. 0xGold and 0xLitecoin each implement the first on-chain merge-mining with 0xBitcoin and the Mineable Gem project extends the standard onto a non-fungible collectible artifacts, whereby each gem has a unique mining difficulty. The Mineables project is a newer initiative that provides users with the ability to create mineable ERC20 tokens on-chain without writing a line of code and includes a virtualized hashing artifact market that allows miners to purchase on-chain vGPUs to improve mining difficulty and rewards.</p>
+
+
+    </div>
+    </div>
+
+    </div>
+    </div>
+
+
+<hr>
+
     <div class="row">
   <div class="col-lg-12">
     <font color="#ff0000"><h5 class="card-title">Token Mining</h5></font>
@@ -1238,8 +1289,7 @@
   </ul>
   <p>A Retarget happens every <code>1024</code> rewards. In short, the Contract tries to target an Average Reward Time of about 60 times the Ethereum block time. So (at the time of this writing):</p>
   <p><code>~13.9 seconds \* 60 = 13.9 minutes</code></p>
-  <p>If the average Reward Time is longer than that, the difficulty will decrease. If it’s shorter, it will increase. How much longer or shorter it was affects the magnitude with which the difficulty will rise/drop, to a maximum of 50%.<br />
-  <a href="https://0x1d00ffff.github.io/0xBTC-Stats/" target="_blank">Click Here</a> to visit the stats page <a href="https://0x1d00ffff.github.io/0xBTC-Stats/" target="_blank">https://0x1d00ffff.github.io/0xBTC-Stats</a></p>
+  <p>If the average Reward Time is longer than that, the difficulty will decrease. If it’s shorter, it will increase. How much longer or shorter it was affects the magnitude with which the difficulty will rise/drop, to a maximum of 50%.<br /></p>
   </div>
 
   </div>
@@ -1247,6 +1297,7 @@
 
   </div>
 </div>
+<br>
 </div>
 </div>
 
@@ -1302,6 +1353,10 @@
 <div class="tab-pane fade" id="nav-blocks" role="tabpanel" aria-labelledby="nav-blocks-tab">
 
     <div class="container bg-white text-black tab-content shadow p3 mb-5 rounded" align="center">
+
+
+
+
       <div style="display:none;" id="row-blocks">
         <div class="row">
           <div class="col-lg-12 col-sm-12"><h4 class="add-top-padding-5"><a name="blocks"></a>Blocks solved since last retarget</h4></div>
