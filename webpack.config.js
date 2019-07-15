@@ -45,6 +45,10 @@ var webpackPlugins = [
             {from:'app/assets/js',to:'app/assets/js'}
         ]),
 
+        new CopyWebpackPlugin([
+              {from:'app/assets/stylesheets/css',to:'app/assets/stylesheets/css'}
+          ]),
+
       new CopyWebpackPlugin([
             {from:'app/assets/fonts',to:'app/assets/fonts'}
         ]),
