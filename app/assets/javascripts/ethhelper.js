@@ -1,5 +1,5 @@
-var INFURA_ROPSTEN_URL = 'https://ropsten.infura.io/gmXEVo5luMPUGPqg6mhy';
-var INFURA_MAINNET_URL = 'https://mainnet.infura.io/gmXEVo5luMPUGPqg6mhy';
+var INFURA_ROPSTEN_URL = 'https://ropsten.infura.io/v3/ab59d61369b849fabc89df248ee636a9';
+var INFURA_MAINNET_URL = 'https://mainnet.infura.io/v3/ab59d61369b849fabc89df248ee636a9';
 
 
 const Eth = require('ethjs');

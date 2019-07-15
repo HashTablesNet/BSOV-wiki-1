@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+
+
+    <!--videoSTART-> <meta name="viewport" content="width=device-width, initial-scale=1"> <!-videoEND-->
+<meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+
+<!-- HTML Meta Tags -->
+<title>0xBTC.Wiki</title>
+<meta name="description" content="0xBTC.wiki is an information portal for 0xBitcoin. With a block explorer, stats info, and links.">
+
+<meta property="og:site_name" content="0xBTC.Wiki">
+<meta property="og:image" content="https://0xbtc.wiki/app/assets/img/0xbtcwiki-metalogo.png">
+<meta property="og:description" content="0xBTC.wiki is an information portal for 0xBitcoin. With a block explorer, stats info, and links.">
+<meta property="og:title" content="0xBTC Wiki">
+
+<!-- Google / Search Engine Tags -->
+<meta itemprop="name" content="0xBTC Wiki">
+<meta itemprop="description" content="0xBTC.wiki is an information portal for 0xBitcoin. With a block explorer, stats info, and links.">
+<meta itemprop="image" content="https://0xbtc.wiki/app/assets/img/0xbtcwiki-metalogo.png">
+
+<!-- Facebook Meta Tags -->
+<meta property="og:url" content="https://0xbtc.wiki">
+<meta property="og:type" content="website">
+<meta property="og:title" content="0xBTC.Wiki">
+<meta property="og:description" content="0xBTC.wiki is an information portal for 0xBitcoin. With a block explorer, stats info, and links.">
+<meta property="og:image" content="https://0xbtc.wiki/app/assets/img/0xbtcwiki-metalogo.png">
+
+<!-- Twitter Meta Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="0xBTC.Wiki">
+<meta name="twitter:description" content="0xBTC.wiki is an information portal for 0xBitcoin. With a block explorer, stats info, and links.">
+<meta name="twitter:image" content="https://0xbtc.wiki/app/assets/img/0xbtcwiki-metalogo.png">
+
+<meta name="keywords" content="0xBTC, 0xBitcoin, 0xBTC Wiki, 0x, Token Mining, Mineable Token, 0xBitcoin Mining, Mining, ERC20, Token, Ethereum, ETH">
+
+<link rel="icon" type="image/png" href="/app/assets/img/favicon.png"/>
+
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"/>
+
+
+
+
+<!--Bootstrap Stylesheet-->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous"/>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+<!-- jquery is here because scripts need it early on. may want to move other js imports here. -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<!-- jqMath allows for real equation formatting -->
+<script src="app/views/js/jqmath-etc-0.4.6.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<!-- note: lodash is only used for _.debounce() -->
+<script src="https://cdn.jsdelivr.net/npm/lodash@4.17.10/lodash.min.js"></script>
+<script src="app/views/js/tipr.min.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-117165354-1"></script>
+<script type="text/javascript" src="app/views/js/gtag.js"></script>
+
+
+<meta name="viewport" content="width=600">
+
+
+    <link rel="stylesheet" type="text/css" href="app/views/css/jqmath-0.4.3.css">
+
+    <link rel="stylesheet" type="text/css" href="app/views/css/main.css">
+    <link rel="stylesheet" type="text/css" href="app/views/css/themes/dark1.css">
+    <link rel="stylesheet" type="text/css" href="app/views/css/ionicons.css">
+    <link rel="stylesheet" type="text/css" href="app/views/css/tipr-corso.css">
+
+
+<style>
+  #fundraiser-progress-container {
+    width: 400px;
+    height: 45px;
+    margin: -15px 0 0 -200px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: #4a00ff;
+    text-decoration-color: #00e010;
+    background-color: #4a00ff;
+}
+#fundraiser-progress-bar {
+    width: 0%;
+    height: 45px;
+    line-height: 45px; /* center text vertically; should match height */
+    background-color: #00e010;
+    color: #4a00ff;
+}
+</style>
+
+
+
+  <link href="/app/assets/stylesheets/main.css" rel="stylesheet"></head>
+  <body>
+
+<div class="bg-transparent">
+
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbar">
+<div class="container">
+<nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbar">
+
+
+
+    <a class="navbar-brand" href="/"><img src="/app/assets/img/0xbtcwiki.png" height="75px" width="366px" style="max-height:75px" alt="Responsive image"></img>
+    </a>
+  <button class="navbar-toggler justify-content-end" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Docs
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="navbar-item" target="blank" href="https://0xbitcoin.org">
+          &nbsp; <i class="icon ion-ios-world-outline navicon"></i>&nbsp;  0xBTC Website
+          </a>
+          <a class="navbar-item" target="blank" href="https://0xbitcoin.foundation">
+          &nbsp; <i class="icon ion-ios-browsers-outline navicon"></i>&nbsp;  0xBitcoin Foundation
+          </a>
+          <a class="navbar-item "  target="blank" href="https://github.com/0xbitcoin/white-paper">
+          &nbsp; <i class="icon ion-ios-paper-outline navicon"></i>&nbsp;  White Paper
+          </a>
+          <a class="navbar-item "  target="blank" href="https://etherscan.io/address/0xb6ed7644c69416d67b522e20bc294a9a9b405b31#code">
+          &nbsp; <i class="icon ion-ios-gear-outline navicon"></i>&nbsp;  Smart Contract
+          </a>
+          <hr class="navbar-divider">
+          <div class="navbar-image">
+            <div class="has-text-centered">
+              <img :src="contractQR" height="100" width="100" style="max-height:100px"/>
+            </div>
+        </div>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+           Community
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="navbar-item "  target="blank" href="https://discord.gg/JGEqqmS">
+          &nbsp; <i class="icon ion-ios-chatboxes-outline navicon"></i>&nbsp;  Discord
+          </a>
+          <a class="navbar-item "  target="blank" href="https://reddit.com/r/0xbitcoin">
+          &nbsp; <i class="icon ion-social-reddit-outline navicon"></i>&nbsp;  Subreddit
+          </a>
+          <a class="navbar-item "  target="blank" href="https://t.me/ZEROxBTC">
+          &nbsp; <i class="icon ion-ios-paperplane-outline navicon"></i>&nbsp;  Telegram
+          </a>
+          <a class="navbar-item" href="https://twitter.com/0xBTCFoundation" target="_blank">
+            &nbsp; <i class="icon ion-social-twitter-outline navicon"></i>&nbsp; Twitter
+            </a>
+          <a class="navbar-item" target="blank" href="https://github.com/0xbitcoin">
+          &nbsp; <i class="icon ion-social-github-outline navicon"></i>&nbsp;  Github
+          </a>
+        </div>
+      </li>
+      <div class="navbar-end" style="padding:5px;">
+
+
+       <div class="nav-search-container field is-horizontal">
+         <input class="input nav-search search" type="text" placeholder="Address / Txn Hash">
+         <a class="button nav-search-go"><font color="#c1c1c1">Go</font></a>
+
+       </div>
+
+      </div>
+    <font color="c1c1c1" size="1">Search by Address / Txn Hash</font>
+    </ul>
+
+  </div>
+
+  </nav>
+  </div>
+  </nav>
+
+
+
+
+<!--hide->
+<div class="bg-dark">
+<nav class="navbar " id="navbar">
+  <div class="navbar-container">
+
+
+  <div class="navbar-brand">
+    <a class="navbar-item" href="/">
+
+      <img src="/app/assets/img/0xBTC-Logo-white.png" height=70px width=70px></img>
+
+         <font size="6" color="000000"><b>0xBitcoin wiki</b></font>
+
+
+    </a>
+
+  </div>
+
+
+
+
+
+  <div class="navbar-burger" data-target="navMenu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+
+
+
+
+  <div  class="navbar-menu">
+    <div class="navbar-start">
+
+
+
+      <div class="navbar-item has-dropdown is-active">
+        <div class="navbar-link  is-active acts-as-link dropdown-button"  >
+          Docs
+        </div>
+        <div class="navbar-dropdown ">
+
+          <a class="navbar-item" target="blank" href="https://0xbitcoin.org">
+            0xBTC Website
+          </a>
+          <a class="navbar-item "  target="blank" href="https://github.com/0xbitcoin/white-paper">
+            White Paper
+          </a>
+          <a class="navbar-item "  target="blank" href="https://etherscan.io/address/0xb6ed7644c69416d67b522e20bc294a9a9b405b31#code">
+            Smart Contract
+          </a>
+
+
+
+
+
+
+          <hr class="navbar-divider">
+          <div class="navbar-image">
+            <div class="has-text-centered">
+              <img :src="contractQR" height="72" width="72" style="max-height:72px"/>
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="navbar-item has-dropdown is-active  ">
+        <div class="navbar-link acts-as-link dropdown-button">
+          Community
+        </div>
+        <div class="navbar-dropdown ">
+
+          <a class="navbar-item "  target="blank" href="https://discord.gg/JGEqqmS">
+            Discord
+          </a>
+          <a class="navbar-item "  target="blank" href="https://reddit.com/r/0xbitcoin">
+            Subreddit
+          </a>
+          <a class="navbar-item" target="blank" href="https://github.com/0xbitcoin">
+            Github
+          </a>
+
+
+        </div>
+      </div>
+
+      <div class="navbar-item has-dropdown is-active  ">
+        <div class="navbar-link acts-as-link dropdown-button">
+          Exchanges
+        </div>
+        <div class="navbar-dropdown ">
+
+          <a class="navbar-item "  target="blank" href="http://0xbtc.wiki">
+            link1
+          </a>
+          <a class="navbar-item "  target="blank" href="http://0xbtc.wiki">
+            link2
+          </a>
+          <a class="navbar-item "  target="blank" href="http://0xbtc.wiki">
+            link3
+          </a>
+          <a class="navbar-item "  target="blank" href="http://0xbtc.wiki">
+            link4
+          </a>
+          <a class="navbar-item "  target="blank" href="http://0xbtc.wiki">
+            link5
+          </a>
+          <a class="navbar-item "  target="blank" href="http://0xbtc.wiki">
+            link6
+          </a>
+          <a class="navbar-item "  target="blank" href="http://0xbtc.wiki">
+            link7
+          </a>
+          <a class="navbar-item "  target="blank" href="http://0xbtc.wiki">
+            link8
+          </a>
+
+
+        </div>
+      </div>
+
+      <div class="navbar-item has-dropdown is-active  ">
+        <div class="navbar-link acts-as-link dropdown-button">
+          Mining
+        </div>
+        <div class="navbar-dropdown ">
+
+          <a class="navbar-item "  target="blank" href="http://0xbtc.wiki">
+            link1
+          </a>
+          <a class="navbar-item "  target="blank" href="http://0xbtc.wiki">
+            link2
+          </a>
+          <a class="navbar-item "  target="blank" href="http://0xbtc.wiki">
+            link3
+          </a>
+          <a class="navbar-item "  target="blank" href="http://0xbtc.wiki">
+            link4
+          </a>
+          <a class="navbar-item "  target="blank" href="http://0xbtc.wiki">
+            link5
+          </a>
+          <a class="navbar-item "  target="blank" href="http://0xbtc.wiki">
+            link6
+          </a>
+          <a class="navbar-item "  target="blank" href="http://0xbtc.wiki">
+            link7
+          </a>
+          <a class="navbar-item "  target="blank" href="http://0xbtc.wiki">
+            link8
+          </a>
+
+
+        </div>
+      </div>
+
+      <div class="navbar-item has-dropdown is-active  ">
+        <div class="navbar-link acts-as-link dropdown-button">
+          dApps
+        </div>
+        <div class="navbar-dropdown ">
+
+          <a class="navbar-item "  target="blank" href="http://0xbtc.wiki">
+            link1
+          </a>
+          <a class="navbar-item "  target="blank" href="http://0xbtc.wiki">
+            link2
+          </a>
+          <a class="navbar-item "  target="blank" href="http://0xbtc.wiki">
+            link3
+          </a>
+          <a class="navbar-item "  target="blank" href="http://0xbtc.wiki">
+            link4
+          </a>
+          <a class="navbar-item "  target="blank" href="http://0xbtc.wiki">
+            link5
+          </a>
+          <a class="navbar-item "  target="blank" href="http://0xbtc.wiki">
+            link6
+          </a>
+          <a class="navbar-item "  target="blank" href="http://0xbtc.wiki">
+            link7
+          </a>
+          <a class="navbar-item "  target="blank" href="http://0xbtc.wiki">
+            link8
+          </a>
+
+
+        </div>
+      </div>
+
+
+    </div>
+
+
+      <div class="navbar-end is-hidden-mobile" style="padding:5px;">
+
+
+       <div class="nav-search-container field is-horizontal">
+         <input class="input nav-search search" type="text" placeholder="Address / Txn Hash">
+         <a class="button nav-search-go"><font color="#c1c1c1">Go</font></a>
+
+       </div>
+
+      </div>
+    <font color="c1c1c1" size="1">Search by Address / Txn Hash</font>
+
+
+
+  </div>
+
+
+
+</div>
+
+
+<div class="navbar-menu is-hidden-desktop" id="navMenu">
+
+
+
+
+
+<div class="navbar-start has-text-centered navbar-collapse-mobile" >
+
+  <div class="navbar-item has-dropdown is-active  ">
+    <div class="navbar-link acts-as-link dropdown-button">
+      Community
+    </div>
+    <div class="navbar-dropdown ">
+
+      <a class="navbar-item "  target="blank" href="https://discord.gg/JGEqqmS">
+        Discord
+      </a>
+      <a class="navbar-item "  target="blank" href="https://reddit.com/r/0xbitcoin">
+        Subreddit
+      </a>
+      <a class="navbar-item" target="blank" href="https://github.com/0xbitcoin">
+        Github
+      </a>
+
+
+    </div>
+  </div>
+
+  <div class="navbar-item has-dropdown is-active">
+    <div class="navbar-link  is-active acts-as-link dropdown-button"  >
+      Docs
+    </div>
+    <div class="navbar-dropdown ">
+
+      <a class="navbar-item" target="blank" href="https://0xbitcoin.org">
+        0xBTC Website
+      </a>
+      <a class="navbar-item "  target="blank" href="https://github.com/0xbitcoin/white-paper">
+        White Paper
+      </a>
+      <a class="navbar-item "  target="blank" href="https://etherscan.io/address/0xb6ed7644c69416d67b522e20bc294a9a9b405b31#code">
+        Smart Contract
+      </a>
+
+
+
+
+
+
+      <hr class="navbar-divider">
+      <div class="navbar-image">
+        <div class="has-text-centered">
+          <img :src="contractQR" height="72" width="72" style="max-height:72px"/>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="nav-search-container field is-horizontal">
+    <input class="input nav-search  search" type="text" placeholder="Address / Txn Hash">
+    <a class="button nav-search-go ">Go</a>
+    <br>
+  </div>
+
+
+    <hr>
+
+
+  </div>
+
+
+
+
+</div>
+</nav>
+</div>
+
+<!--hide-->
+
+
+
+
+
+  <div class="page-container" id="account">
+    <section class="hero">
+      <div class="hero-body">
+
+
+
+
+
+
+<div class="whitespace-md"></div>
+
+          <div class="whitespace-md"></div>
+
+
+            <div id="account-data" class="account-data">
+              <div   class="subtitle">
+              Account   <a v-bind:href="etherscanUrl" target="blank">{{ address }}</a>
+              </div>
+
+
+              <div class="attributes box">
+
+                <div class="attribute-row">
+                  0xBitcoin Balance:  {{ tokenBalanceFormatted }}
+                </div>
+                <div class="attribute-row">
+                  Ether Balance:  {{ etherBalanceFormatted }}
+                </div>
+
+
+                <div class="attribute-row">
+                  <a v-bind:href="etherscanUrl" target="blank"> Etherscan Link </a>
+
+                </div>
+              </div>
+<!--
+  <script>
+  document.write('<a href="' + document.referrer + '">🢀 Back</a>');
+</script>
+-->
+
+<a href="javascript:history.back()">🢀 Back</a>
+             </div>
+
+             <div class="whitespace-md"></div>
+             <div class="whitespace-md"></div>
+
+<!--
+                   <div class="whitespace-md"></div>
+
+                   <div class="columns">
+                     <div class="column">
+
+                       <div id="mint-list" class="event-list" v-cloak>
+
+
+                         <div class="subtitle" >Recent Mints</div>
+
+                         <table>
+                           <thead>
+                             <tr >
+                               <td class="has-text-centered"> Block </td>
+                               <td class="has-text-centered"> Hash </td>
+
+                             </tr>
+                           </thead>
+                           <tbody>
+                           <tr v-for="(item, index) in list"   v-bind:class="{   'asset-row':true, 'acts-as-link':true, 'hover-shadow':true   } " >
+
+                               <td class="row-cell has-text-centered  "> {{item.blockNumberFormatted}} </td>
+                              <td class="row-cell has-text-centered "> <a v-bind:href="item.url"> {{item.hashFormatted}} </a> </td>
+
+                           </tr>
+                         </tbody>
+                       </table>
+
+                        </div>
+
+                     </div>
+
+                     <div class="column">
+
+                       <div id="transfer-list" class="event-list" v-cloak>
+
+
+
+                         <div class="subtitle" >Recent Transfers</div>
+
+                         <table>
+                           <thead>
+                             <tr >
+                               <td class="has-text-centered"> Block </td>
+                               <td class="has-text-centered"> Hash </td>
+
+                             </tr>
+                           </thead>
+                           <tbody>
+                           <tr v-for="(item, index) in list"   v-bind:class="{   'asset-row':true, 'acts-as-link':true, 'hover-shadow':true   } " >
+
+                               <td class="row-cell has-text-centered  "> {{item.blockNumberFormatted}} </td>
+                              <td class="row-cell has-text-centered "> <a v-bind:href="item.url"> {{item.hashFormatted}} </a> </td>
+
+                           </tr>
+                         </tbody>
+                       </table>
+
+                        </div>
+
+                     </div>
+
+                   </div>
+
+
+
+
+
+-->
+
+</div>
+</section>
+    </div>
+    <footer id="footer" class="footer">
+   <div class="bg-light">
+     <a id="scrollUp" href="#top" style="position: fixed; z-index: 2147483647;"><i class="icon-arrow-up"></i></a>
+     <div class="content has-text-centered">
+
+         <p>
+           <font color="#ff0000">
+           <b>Show some love</b>
+             <br>
+            <a href="https://etherscan.io/address/0xD1AB10ea23535Fb2A5C5395278634FF66CaeB0c8" target="_blank"><img src="/app/assets/img/heart.png" width="30" height="30"> 0xD1AB10ea23535Fb2A5C5395278634FF66CaeB0c8</a></font>
+            </p>
+
+            <div id="row-footer">
+              <div class="row text-center">
+                <div class="col-lg-12 col-sm-12">
+                  Data fetched at:
+                  <span id="LastUpdatedTime">00:00:00</span>
+                  <div style="font-size:0.875em;">
+                    0xBitcoin Stats
+                    <span id="footerversion">
+                      v0.0.0
+                    </span>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+          <br>
+          <font size="1">
+          The source code is licensed
+         <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
+         is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
+         </font>
+
+     </div>
+   </div>
+
+</footer>
+
+
+
+
+</div>
+
+<script type="text/javascript" src="/bundle.js"></script></body>
+
+</html>

@@ -15,9 +15,18 @@ var htmlPlugin = new HtmlWebpackPlugin({
       template: 'app/index.html',
 });
 */
+
 var extractPlugin = new ExtractTextPlugin({
-   filename: 'app/assets/stylesheets/main.css'
+   filename: 'app/assets/stylesheets/main.[hash].css'
 });
+
+/*
+var extractPlugin = new ExtractTextPlugin({
+
+path: '/app/assets/js/', filename: ['mining-calculator.js', '/app/assets/js/graphs.js', '/app/assets/js/main.js', '/app/assets/js/abi.js', '/app/assets/js/ethjs.js', '/app/assets/js/ethereumjs-testrpc.js'],
+path: 'app/assets/stylesheets/', filename: ['main.css']
+});
+*/
 
 
 var webpackPlugins = [
@@ -27,10 +36,24 @@ var webpackPlugins = [
           NODE_ENV: '"production"'
         }
       }),
+
       new CopyWebpackPlugin([
             {from:'app/assets/img',to:'app/assets/img'}
+        ]),
+
+      new CopyWebpackPlugin([
+            {from:'app/assets/js',to:'app/assets/js'}
+        ]),
+
+      new CopyWebpackPlugin([
+            {from:'app/assets/fonts',to:'app/assets/fonts'}
+        ]),
+
+
+      new CopyWebpackPlugin([
+            {from:'app/assets/icons',to:'app/assets/icons'}
         ])
-]
+];
 
 
 
