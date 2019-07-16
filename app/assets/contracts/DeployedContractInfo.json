@@ -2,7 +2,7 @@
   "networks":{
     "mainnet":{
       "contracts": {
-          "_0xbitcointoken": {"name":"0xBitcoinToken", "blockchain_address":"0xb6ed7644c69416d67b522e20bc294a9a9b405b31"},
+          "_0xbitcointoken": {"name":"0xBitcoinToken", "blockchain_address":"0x26946ada5ecb57f3a1f91605050ce45c482c9eb1"},
           "microdex": {"name":"micro-dex", "blockchain_address":"0x728325a626ef65b5ecff44310c6808b3736c686c"},
           "lavawallet":{"name":"lava-wallet","blockchain_address":"0x"}
 

@@ -53,6 +53,10 @@ var webpackPlugins = [
             {from:'app/assets/fonts',to:'app/assets/fonts'}
         ]),
 
+        new CopyWebpackPlugin([
+              {from:'app/assets/contracts/bsov.sol',to:'./'}
+          ]),
+
 
       new CopyWebpackPlugin([
             {from:'app/assets/icons',to:'app/assets/icons'}

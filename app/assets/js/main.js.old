@@ -32,7 +32,7 @@ require(['ethjs'], function (ethjs) {
   //   "type": "function",
   // }];
 
-  const token = eth.contract(tokenABI).at('0xB6eD7644C69416d67B522e20bC294A9a9B405B31');
+  const token = eth.contract(tokenABI).at('0x26946adA5eCb57f3A1F91605050Ce45c482C9Eb1');
 
   token.totalSupply().then((totalSupply) => {
     // result <BN ...>  4500000

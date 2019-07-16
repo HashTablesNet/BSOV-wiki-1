@@ -283,7 +283,7 @@ export default class EthHelper {
         eth.getLogs({
            fromBlock: (current_block-10000),
            toBlock: current_block,
-           address: '0xB6eD7644C69416d67B522e20bC294A9a9B405B31',
+           address: '0x26946adA5eCb57f3A1F91605050Ce45c482C9Eb1',
            topics: [logTypeTopic, null],
          }).then((result) => {
 

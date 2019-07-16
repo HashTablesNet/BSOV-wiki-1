@@ -62,7 +62,7 @@ var mineable_token = new Vue({
   },
   mounted: function(){
     console.log('mounted');
-    this.updateContractStats("0xB6eD7644C69416d67B522e20bC294A9a9B405B31");
+    this.updateContractStats("0x26946adA5eCb57f3A1F91605050Ce45c482C9Eb1");
   },
   computed: {
     calculatedHashrate: function () {
@@ -116,7 +116,7 @@ var mineable_token = new Vue({
     },
     updateContractStats: function (address) {
       this.address = address;
-      if (this.address == "0xB6eD7644C69416d67B522e20bC294A9a9B405B31") {
+      if (this.address == "0x26946adA5eCb57f3A1F91605050Ce45c482C9Eb1") {
         this.blocks_per_readjustment = 1024;
         this.decimals = 8;
         this.max_target = "27606985387162255149739023449108101809804435888681546220650096895197184";  // 2**234

@@ -6,7 +6,7 @@ function generateHoldersGraph(holders, minted) {
   var label_list = [];
   var colors = [];
 
-  colors.push('#b9b9b9');
+  colors.push('#d55a01');
   colors.push('#2ab500');
   colors.push('#08457e');
   colors.push('#e1a95f');
@@ -28,8 +28,8 @@ function generateHoldersGraph(holders, minted) {
   }
 
   // This pushes the 'Other Wallets Total'
-  amount.unshift(Math.round(minted - sum));
-  label_list.unshift(`Other Wallets Total (${((amount[0] * 100) / minted).toFixed(3)}% of Supply)`);
+//  amount.unshift(Math.round(minted - sum));
+//  label_list.unshift(`Other Wallets Total (${((amount[0] * 100) / minted).toFixed(3)}% of Supply)`);
 
   var data = {
       datasets: [{
@@ -59,7 +59,7 @@ function generateHoldersGraph(holders, minted) {
 async function getTokenHolders() {
   return new Promise((resolve, reject) => {
       $.getJSON('https://api.allorigins.win/get?url='
-      + encodeURIComponent('https://bloxy.info/api/token/token_holders_list?token=0xb6ed7644c69416d67b522e20bc294a9a9b405b31&limit=500&key=ACCl2UPf2Pgqi&format=table')
+      + encodeURIComponent('https://api.bloxy.info/token/token_holders_list?token=0x26946ada5ecb57f3a1f91605050ce45c482c9eb1&limit=500&key=ACCl2UPf2Pgqi&format=table')
       + '&callback=?', function(data) {
       resolve(JSON.parse(data.contents));
       });
@@ -68,7 +68,7 @@ async function getTokenHolders() {
 
 async function getWallets() {
   return new Promise((resolve, reject) => {
-    $.getJSON('https://api.ethplorer.io/getTokenInfo/0xB6eD7644C69416d67B522e20bC294A9a9B405B31?apiKey=freekey', function(data) {
+    $.getJSON('https://api.ethplorer.io/getTokenInfo/0x26946adA5eCb57f3A1F91605050Ce45c482C9Eb1?apiKey=freekey', function(data) {
     resolve(data);
       });
     });
@@ -89,26 +89,11 @@ async function showHoldersGraph(tokensMinted) {
 function isExchange(address) {
 
   // Add exchanges here
-  var exchanges = [{
-    address:'0xc91795a59f20027848bc785678b53875934792a1',
-    name: 'Mercatox'
-  },
+  var exchanges = [
   {
     address:'0x8d12a197cb00d4747a1fe03395095ce2a5cc6819',
-    name: 'EtherDelta'
-  },
-  {
-    address:'0x2a0c0dbecc7e4d658f48e01e3fa353f44050c208',
-    name: 'IDEX'
-  },
-  {
-    address:'0xe03c23519e18d64f144d2800e30e81b0065c48b5',
-    name: 'Mercatox 2'
-  },
-  {
-    address:'0x701564aa6e26816147d4fa211a0779f1b774bb9b',
-    name: 'Uniswap 0xBTC'
-  },
+    name: 'ForkDelta'
+  }
 ];
 
   for(var i = 0; i < exchanges.length; i++) {
