@@ -3,12 +3,8 @@ const $ = require('jquery');
 
 const Eth = require('./template/ethjs');
 
-
 const bootstrap = require('./template/bootstrap.min');
 const main = require('./template/main');
-const tokenABI = require("./template/abi");
-
-
 
 const mineable_token = require('./template/mineable-token-vue.js');
 //import TokenStats from './template/tokenStats'
@@ -113,17 +109,6 @@ $(document).ready(function(){
 
 
 });
-const miningCalculator = require('./template/mining-calculator');
-const ethjsTEST = require("./template/ethereumjs-testrpc");
-const gTAG = require("./template/gtag");
-const graphsBIG = require("./template/graphs");
-const jsCurry = require("./template/jqmath-etc-0.4.6.min");
-const tipR = require('./template/tipr.min');
-
-
-
-
-
 
 
 //dashboardRenderer.hide();

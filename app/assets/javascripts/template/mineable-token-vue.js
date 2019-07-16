@@ -4,8 +4,6 @@ const tokenABI = require("./abi");
 const Eth = require('./ethjs');
 const $ = require('jquery');
 
-
-
 import Vue from 'vue'
 
 function to_readable_thousands(number, unit_type, decimal_count) {
