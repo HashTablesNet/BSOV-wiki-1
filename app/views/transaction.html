@@ -24,14 +24,12 @@
 
     <div class="whitespace-md"></div>
 
-
-      <div id="tx-data" class="tx-data">
-        <div   class="subtitle">
-          Tx Hash: <a v-bind:href="txData.etherscanUrl" target="blank">{{ txData.hash }}</a>
-        </div>
-
-        <div class="attributes box">
-
+<div id="tx-data" class="tx-data">
+    <div class="card border-light mb-3" style="max-width: 50rem;">
+      <div class="card-header bg-danger text-light"><b>Transaction Details</b></div>
+      <div class="card-body bg-dark text-warning">
+        <h5 class="card-title">Tx Hash: <a v-bind:href="txData.etherscanUrl" target="blank">{{ txData.hash }}</a></h5>
+        <p class="card-text">
           <div class="attribute-row">
             Type: {{ txData.txType }}
           </div>
@@ -59,9 +57,15 @@
           <div class="attribute-row">
             <a v-bind:href="txData.etherscanUrl" target="blank">  Etherscan Link  </a>
           </div>
+        </p>
+      </div>
+      <div class="card-footer bg-dark border-success"><a href="javascript:history.back()">🢀 Back</a></div>
+    </div>
 
-        </div>
-    <a href="javascript:history.back()">🢀 Back</a>
+
+
+
+
 
 
        </div>

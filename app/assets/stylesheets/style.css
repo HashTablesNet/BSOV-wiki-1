@@ -24,7 +24,7 @@ body {
     font-family: 'Roboto', sans-serif;
     font-size: 15px;
     line-height: 24px;
-    color: #0059a2;
+    color: #fff494;
 }
 
 h1, h2, h3, h4, h5, h6{
@@ -58,7 +58,7 @@ a{
     transition: all 0.4s ease;
 }
 a:hover {
-    color: #1968e0;
+    color: #fff494;
     text-decoration: none;
 }
 ul, ol{
@@ -264,7 +264,7 @@ Navigation
 }
 .navbar-default .navbar-nav>.active>a{
     background-color: transparent;
-    color: #fff;
+    color: #000;
 
 }
 .navigation-menu .navbar-default .navbar-nav a{
@@ -1133,11 +1133,11 @@ footer{
 }
 
 #scrollUp{
-    background-color: rgba(#ff7209, 0.7)!important;
-    border: 1px solid #002762!important;
+    background-color: rgba(#49ff09, 0.61)!important;
+    border: 1px solid #fff494!important;
     border-radius: 8px;
     bottom: 30px;
-    color: #002762;
+    color: #fff494;
     height: 45px;
     line-height: 3;
     right: 30px;

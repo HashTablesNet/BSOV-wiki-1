@@ -33,33 +33,30 @@
 
 
             <div id="account-data" class="account-data">
-              <div   class="subtitle">
-              Account   <a v-bind:href="etherscanUrl" target="blank">{{ address }}</a>
+
+              <div class="card border-light mb-3" style="max-width: 50rem;">
+                <div class="card-header bg-danger text-light"><b>Account Details</b></div>
+                <div class="card-body bg-dark text-warning">
+                  <h5 class="card-title text-warning">Account: <a v-bind:href="etherscanUrl" target="blank">{{ address }}</a></h5>
+                    <div class="attribute-row">
+                      0xBitcoin Balance:  {{ tokenBalanceFormatted }}
+                    </div>
+                    <div class="attribute-row">
+                      Ether Balance:  {{ etherBalanceFormatted }}
+                    </div>
+
+
+                    <div class="attribute-row">
+                      <a v-bind:href="etherscanUrl" target="blank"> Etherscan Link </a>
+
+                    </div>
+                </div>
+                <div class="card-footer bg-dark border-success"><a href="javascript:history.back()">🢀 Back</a></div>
               </div>
 
 
-              <div class="attributes box">
-
-                <div class="attribute-row">
-                  0xBitcoin Balance:  {{ tokenBalanceFormatted }}
-                </div>
-                <div class="attribute-row">
-                  Ether Balance:  {{ etherBalanceFormatted }}
-                </div>
 
 
-                <div class="attribute-row">
-                  <a v-bind:href="etherscanUrl" target="blank"> Etherscan Link </a>
-
-                </div>
-              </div>
-<!--
-  <script>
-  document.write('<a href="' + document.referrer + '">🢀 Back</a>');
-</script>
--->
-
-<a href="javascript:history.back()">🢀 Back</a>
              </div>
 
              <div class="whitespace-md"></div>

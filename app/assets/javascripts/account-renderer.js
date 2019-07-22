@@ -42,7 +42,8 @@ export default class AccountRenderer {
               etherBalance: accountData.etherBalance,
               tokenBalanceFormatted: accountData.tokenBalance / 10e7,
               etherBalanceFormatted: accountData.etherBalance / 10e17,
-              etherscanUrl: 'https://etherscan.io/address/'+accountData.address
+              etherscanUrl: 'https://etherscan.io/address/'+accountData.address,
+//              burnUrl: 'https://etherscan.io/token/0x26946ada5ecb57f3a1f91605050ce45c482c9eb1?a=0x0000000000000000000000000000000000000000'
 
             }
           });

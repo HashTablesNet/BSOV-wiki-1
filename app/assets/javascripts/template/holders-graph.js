@@ -81,7 +81,7 @@ async function showHoldersGraph(tokensMinted) {
 
   // Used for total wallet count representation
   var wallets = await getWallets();
-  $('.wallets').text('Total Holders: ' + wallets.holdersCount);
+  $('.wallets').text(  wallets.holdersCount);
 
   generateHoldersGraph(tokenHolders, tokensMinted);
 }

@@ -10,10 +10,6 @@
 
   </head>
   <body>
-    <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M7R3M8Q"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
 
 
     <div class="bg-transparent">
@@ -50,18 +46,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
         <nav>
           <div class="nav nav-tabs justify-content-center" id="nav-tab" role="tablist">
-            <a class="nav-item nav-link active" id="stats-home-tab" data-toggle="tab" href="#stats-home" role="tab" aria-controls="stats-home" aria-selected="true">Stats</a>
-            <a class="nav-item nav-link" id="nav-blocks-tab" data-toggle="tab" href="#nav-blocks" role="tab" aria-controls="nav-blocks" aria-selected="false">Blocks Mined</a>
-            <a class="nav-item nav-link" id="nav-links-tab" data-toggle="tab" href="#nav-links" role="tab" aria-controls="nav-links" aria-selected="false">Links</a>
-            <a class="nav-item nav-link" id="nav-tokenmining-tab" data-toggle="tab" href="#nav-tokenmining" role="tab" aria-controls="nav-tokenmining" aria-selected="false">Token Mining?</a>
-            <a class="nav-item nav-link" id="nav-software-tab" data-toggle="tab" href="#nav-software" role="tab" aria-controls="nav-software" aria-selected="false">Software</a>
+    <a class="bg-transparent nav-item nav-link active bg-success" id="stats-home-tab" data-toggle="tab" href="#stats-home" role="tab" aria-controls="stats-home" aria-selected="true" aria-pressed="true"><font color="#e3ff00">Stats</font></a>
+            <a class="bg-transparent nav-item nav-link bg-success" id="nav-blocks-tab" data-toggle="tab" href="#nav-blocks" role="tab" aria-controls="nav-blocks" aria-selected="false"><font color="#e3ff00">Blocks Mined</font></a>
+            <a class="bg-transparent nav-item nav-link bg-success" id="nav-links-tab" data-toggle="tab" href="#nav-links" role="tab" aria-controls="nav-links" aria-selected="false"><font color="#e3ff00">Links</font></a>
+            <a class="bg-transparent nav-item nav-link bg-success" id="nav-tokenmining-tab" data-toggle="tab" href="#nav-tokenmining" role="tab" aria-controls="nav-tokenmining" aria-selected="false"><font color="#e3ff00">Token Mining?</font></a>
+            <a class="bg-transparent nav-item nav-link bg-success" id="nav-software-tab" data-toggle="tab" href="#nav-software" role="tab" aria-controls="nav-software" aria-selected="false"><font color="#e3ff00">Software</font></a>
           </div>
         </nav>
 
         <div class="tab-content" id="nav-tabContent">
           <div class="tab-pane fade show active" id="stats-home" role="tabpanel" aria-labelledby="stats-home-tab">
 
-      <div class="container bg-white tab-content shadow p3 mb-5 rounded">
+      <div class="container bg-dark tab-content shadow p3 mb-5 rounded">
 
 
   <div class="row">
@@ -69,14 +65,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <hr>
         <div class="is-centered">
         <ul id="navigation" class="text-center" align="center">
-          <li class="nav"><a href="#row-statistics"><i class="icon ion-ios-pulse navicon"></i>stats</a></li>
-          <li class="nav"><a href="#holders"><i class="icon ion-ios-pie-outline navicon"></i>distribution</a></li>
+          <li class="nav"><a href="#row-statistics"><font color="#fff" size=5<i class="icon ion-ios-pulse navicon"></i></font>stats</a></li>
+          <li class="nav"><a href="#holders"><font color="#fff" size=5<i class="icon ion-ios-pie-outline navicon"></i></font>distribution</a></li>
 
 
 <!--<hide">      <li class="nav"><a href="./?page=stats&#miningcalculator"><i class="icon ion-ios-calculator-outline navicon"></i> mining calculator</a></li> </hide>-->
 
-          <li class="nav"><a href="#row-difficulty"><i class="icon ion-ios-flame-outline navicon"></i> difficulty / hashrate</a></li>
-          <li class="nav"><a href="#reward-time"><i class="icon ion-ios-speedometer-outline navicon"></i> reward time / supply</a></li>
+          <li class="nav"><a href="#row-difficulty"><font color="#fff" size=5<i class="icon ion-ios-flame-outline navicon"></i></font> difficulty / hashrate</a></li>
+          <li class="nav"><a href="#reward-time"><font color="#fff" size=5<i class="icon ion-ios-speedometer-outline navicon"></i></font> reward time / supply</a></li>
 
         </ul>
       </div>
@@ -95,10 +91,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
       <div id="mint-list" class="event-list" v-cloak>
-        <div class="text-center" ><b><font color="#2b2b2b"><h5>Recent Mints</h5></font></b></div>
+
+        <div class="text-center" ><b><font color="#e3ff00"><h5>Recent Mints</h5></font></b></div>
 
         <table align="center">
           <thead>
+
+            <tr v-bind:class="{   'asset-row':true, 'hover-shadow':true   } " >
+              <td class="row-cell has-text-centered"><span style='color: #fff494;'>Tokens Minted</span>&nbsp;&nbsp;&nbsp;<img src="app/assets/img/pickaxe1.png" height="25px" width="25px" style="max-height:25px" alt="Responsive image" alt=""></img></td>
+              <td class="row-cell has-text-centered" id="TokensMinted2">loading...</td>
+
+            </tr>
+
             <tr >
               <td class="has-text-centered"> Block </td>
               <td class="has-text-centered"> Hash </td>
@@ -125,7 +129,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                <br>
 
          <div class="row">
-               <div class="col"><h4><a name="miners"></a><font color="#2b2b2b">Block distribution since last retarget</font></h4></div>
+               <div class="col"><h4><a name="miners"></a><font color="#e3ff00">Block distribution since last retarget</font></h4></div>
              </div>
              <div class="row">
                <div class="col col-5" style="max-width:40%;">
@@ -151,11 +155,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
                <table align="center">
-             <div class="text-center"><b><h5><font color="#2b2b2b">Recent Transfers</font></h5></b></div>
+             <div class="text-center"><b><h5><font color="#e3ff00">Recent Transactions</font></h5></b></div>
+
+        <!--<thead> <tr> <th> </th> <th> </th> </tr> </thead>-->
 
 
                <thead>
-                 <tr >
+                 <tr v-bind:class="{'asset-row':true, 'acts-as-link':true, 'hover-shadow':true} " >
+                <td class="row-cell has-text-centered">
+                <a href='https://etherscan.io/token/0x26946ada5ecb57f3a1f91605050ce45c482c9eb1?a=0x0000000000000000000000000000000000000000' target='blank' style='color: #fff494;'>Tokens Burned
+                </a>&nbsp;&nbsp;&nbsp;<font color="#ff6b00"><i class="fas fa-fire fa-lg"></i></font></td>
+
+                <td class="row-cell has-text-centered"><span id="TokenstopBurned">loading...</span></td>
+              </tr>
+                 <tr>
                    <td class="has-text-centered"> Block </td>
                    <td class="has-text-centered"> Hash </td>
 
@@ -164,8 +177,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                <tbody>
                <tr v-for="(item, index) in list"   v-bind:class="{   'asset-row':true, 'acts-as-link':true, 'hover-shadow':true   } " >
 
-                   <td class="row-cell has-text-centered  "> {{item.blockNumberFormatted}} </td>
-                  <td class="row-cell has-text-centered "> <a v-bind:href="item.url"> {{item.hashFormatted}} </a> </td>
+                   <td class="row-cell has-text-centered"> {{item.blockNumberFormatted}} </td>
+                  <td class="row-cell has-text-centered"> <a v-bind:href="item.url"> {{item.hashFormatted}} </a> </td>
 
                </tr>
              </tbody>
@@ -187,7 +200,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
        <div style="display:none;" id="row-statistics">
          <div class="row">
            <div class="is-centered">
-           <div class="column"><b><h4 class="add-top-padding-4"><font color="#2b2b2b">Current Contract Stats</font></h4></b></div>
+           <div class="column"><b><h4 class="add-top-padding-4"><font color="#e3ff00">Current Contract Stats</font></h4></b></div>
          </div>
          </div>
          <div class="row">
@@ -219,7 +232,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="heading-title text-center">
 
 
-                        <b><h4><font color="#2b2b2b">Token Hashrate {{readableHashrate}}</font></h4></b>
+                        <b><h4><font color="#e3ff00">Token Hashrate {{readableHashrate}}</font></h4></b>
                       </div>
                       </div>
                     </div>
@@ -227,7 +240,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="row">
         <div class="col-sm-12" style="max-width:100%;">
           <table class="table" align="center">
-          <tbody>
+          <tbody bgcolor="343a40">
           <tr>
           <th class="text-center">
 
@@ -246,20 +259,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="col-lg-3 col-sm-12">
 
-  <div id="holders" class="row justify-content-center">
-    <b><h4><font color="#2b2b2b">Token Distribution</font></h4></b>
-  </div>
-  <div class="row justify-content-center">
-    <font size=2><strong>Top 1000 shown</strong></font>
-  </div>
-  <div class="row justify-content-center">
-    <b><font class="wallets" color="#ff0000"></font></b>
-  </div>
+<div id="holders" class="row justify-content-center">
+<b><h4><font color="#e3ff00">Token Distribution</font></h4></b>
+</div>
 
-  <div class="row">
+<div class="row justify-content-center">
+<td class="row-cell has-text-centered"><font style='color: #fff494;'>Total Holders &nbsp;&nbsp; </font> </td>
+<td class="row-cell has-text-centered"><b><font class="wallets" color="#fff"></font></b></td>
+</div>
+
+
+<div class="row">
     <div class="col-sm-12" style="max-width:100%;">
   <table class="table" align="center">
-    <tbody>
+    <tbody bgcolor="343a40">
   <tr v-for="(item, index) in list"   v-bind:class="{   'asset-row':true, 'acts-as-link':true, 'hover-shadow':true   } ">
     <td>
 
@@ -278,7 +291,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 
+
+
     </div>
+
+
+
+
     </div>
   </div>
 
@@ -638,9 +657,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       let searchParams = new URLSearchParams(window.location.search)
     </script>
-    <div class="container bg-white text-black tab-content shadow p3 mb-5 rounded">
 
-<font color="000">
+
+    <div class="container bg-dark tab-content shadow p3 mb-5 rounded">
+
+<font color="e3ff00">
 
 
 
@@ -754,7 +775,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="tab-pane fade" id="nav-links" role="tabpanel" aria-labelledby="nav-links-tab">
 
 
-  <div class="container bg-white tab-content shadow p3 mb-5 rounded">
+  <div class="container bg-dark tab-content shadow p3 mb-5 rounded">
 
     <div class="row">
   <div class="col-lg-12">
@@ -778,18 +799,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 
 <div class="tab-pane fade" id="nav-tokenmining" role="tabpanel" aria-labelledby="nav-tokenmining-tab">
-  <div class="container bg-white tab-content shadow p3 mb-5 rounded">
+  <div class="container bg-dark tab-content shadow p3 mb-5 rounded">
 
     <br>
 
     <div class="row">
     <div class="col-lg-12">
 
-    <font color="#ff0000"><h5 class="card-title">What is 0xBitcoin?</h5></font>
+    <font color="#ff0000"><h5 class="card-title">What is 0xBitcoin?</span></h5></font>
     <div class="card-text">
     <div class="mygrid-wrapper-div">
 
-    <p><a href="https://etherscan.io/address/0x26946ada5ecb57f3a1f91605050ce45c482c9eb1" target="_blank">0xBitcoin (0xBTC)</a> is the first mineable ERC20 token on Ethereum. It uses mining for distribution, unlike all previous ERC20 tokens which were assigned to the contract deployer upon creation. 0xBTC is the first implementation of the EIP918 mineable token standard (<a href="https://eips.ethereum.org/EIPS/eip-918" target="_blank">https://eips.ethereum.org/EIPS/eip-918</a>), which opened up the possibility of a whole new class of mineable assets on Ethereum. Without any ICO, airdrop, pre-mine, or founder’s reward, 0xBitcoin is arguably the most decentralized asset in the Ethereum ecosystem, including even Ether (ETH), which had a large ICO.</p>
+    <p><a href="https://etherscan.io/address/0xb6ed7644c69416d67b522e20bc294a9a9b405b31" target="_blank">0xBitcoin (0xBTC)</a> is the first mineable ERC20 token on Ethereum. It uses mining for distribution, unlike all previous ERC20 tokens which were assigned to the contract deployer upon creation. 0xBTC is the first implementation of the EIP918 mineable token standard (<a href="https://eips.ethereum.org/EIPS/eip-918" target="_blank">https://eips.ethereum.org/EIPS/eip-918</a>), which opened up the possibility of a whole new class of mineable assets on Ethereum. Without any ICO, airdrop, pre-mine, or founder’s reward, 0xBitcoin is arguably the most decentralized asset in the Ethereum ecosystem, including even Ether (ETH), which had a large ICO.</p>
 
     <p>The goal of <a href="https://0xbitcoin.org"  target="_blank">0xBitcoin</a> is to be looked at as a currency and store of value asset on Ethereum. Its 21 million token hard cap and predictable issuance give it scarcity and transparency in terms of monetary policy, both things that Ether lacks. 0xBitcoin has certain advantages over PoW based currencies, such as compatibility with smart contracts and decentralized exchanges. In addition, 0xBTC cannot be 51% attacked (without attacking Ethereum), is immune from the “death spiral”, and will receive the benefits of scaling and other improvements to the Ethereum network.</p>
 
@@ -840,7 +861,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div id=mining>
   <strong>MINING IN A NUTSHELL</strong>
   <p>0xBitcoin is a Smart Contract on the Ethereum network, and the concept of Token Mining is patterned after Bitcoin’s distribution. Rather than solving ‘blocks’, work is issued by the contract, which also maintains a Difficulty which goes up or down depending on how often a Reward is issued. Whenever a miner submits a solution, the miner must pay a small gas fee in order to execute the Ethereum smart contract code for the mint() function. If the gas fee is too low, the solution will take too long to be mined and if difficulty is not at equilibrium then another mint() solution from another miner will likely be mined first. This renders the original miners solution invalid and the transaction will revert(). To alleviate gas fees for miners, they can instead mine into a pool. This way, the pool will then submit the solutions to the smart contract and pay a gas fee. Then the pool will typically take a small percent of the rewards and give the rest to the miner for providing the PoW solution.</p>
-  <p>The 0xBitcoin contract was deployed by Infernal_Toast at Ethereum address: <a href="https://etherscan.io/address/0x26946ada5ecb57f3a1f91605050ce45c482c9eb1" target="_blank">0x26946ada5ecb57f3a1f91605050ce45c482c9eb1</a></p>
+  <p>The 0xBitcoin contract was deployed by Infernal_Toast at Ethereum address: <a href="https://etherscan.io/address/0xb6ed7644c69416d67b522e20bc294a9a9b405b31" target="_blank">0xb6ed7644c69416d67b522e20bc294a9a9b405b31</a></p>
   <ul>
   <li><strong>MINING IN MORE DETAIL</strong></li>
   </ul>
@@ -865,7 +886,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 <div class="tab-pane fade" id="nav-software" role="tabpanel" aria-labelledby="nav-software-tab">
-  <div class="container bg-white tab-content shadow p3 mb-5 rounded">
+  <div class="container bg-dark tab-content shadow p3 mb-5 rounded">
 
     <div class="row">
   <div class="col-lg-12">
@@ -914,7 +935,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="tab-pane fade" id="nav-blocks" role="tabpanel" aria-labelledby="nav-blocks-tab">
 
-    <div class="container bg-white text-black tab-content shadow p3 mb-5 rounded" align="center">
+    <div class="container bg-dark text-black tab-content shadow p3 mb-5 rounded" align="center">
 
 
 
@@ -940,6 +961,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 </div>
 
+
+</div>
 
 
       <%= require('html-loader!./templates/footer.html') %>
@@ -1035,14 +1058,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         }
 
         try {
+          /* initialize tipr tooltips */
           $(document).ready(function() {
-             log("DOMready");
-            /* initialize tipr tooltips */
-            $('.tip').tipr({
-                'speed': 800,
-                //'mode': 'above',
-                //'space': 500
-            });
+               $('.tip').tipr({
+                    //'alt': false,
+                    //'marginAbove': -65,
+                    //'marginBelow': 7,
+                    //'mode': 'above',
+                    //'space': 70,
+                    'speed': 800
+               });
           });
         } catch (err) {
           log('failed to set DOMready fn. Jquery load error?');
@@ -1053,6 +1078,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           initPage();
         }
       </script>
+
+
 
 
 

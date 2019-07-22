@@ -10,13 +10,13 @@ html
 
 }
 body {
-    background: #e2e2e2;
+    background: #000000;
     //color: #777777;
 }
 
 a
 {
-  color: #ff7209;
+  color: #00ff0a;
 }
 
 [v-cloak] { display:none; }
@@ -207,7 +207,7 @@ a
 
 .hover-shadow:hover
 {
-  background-color: #eee;
+  background-color: #000000;
 }
 
 
@@ -401,11 +401,11 @@ overflow: hidden;
 
 .footer
 {
-  color: black;
+  color: #fff494;
 
   a
   {
-    color:  #ff7209;
+    color:  #00ff0a;
     text-decoration: underline;
   }
 

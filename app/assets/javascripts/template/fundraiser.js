@@ -17,7 +17,7 @@ constructor(Eth)
 //move me
 
    getEthBalance(address){
-    return new this.Eth(new this.Eth.HttpProvider("https://mainnet.infura.io/MnFOXCPE2oOhWpOCyEBT")).getBalance(address, "latest");
+    return new this.Eth(new this.Eth.HttpProvider("https://mainnet.infura.io/v3/498f306b74484e868a572298b6e8a1eb")).getBalance(address, "latest");
 }
 
    moveProgressBar(percent, element_id) {
