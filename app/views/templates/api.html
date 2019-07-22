@@ -1,0 +1,251 @@
+<div class="container bg-dark text-black tab-content shadow p3 mb-5 rounded" style="padding: 25px;">
+
+
+
+
+  <div class="row">
+<div class="col-lg-12">
+
+  <h1>Developer API</h1>
+  <h3>Available API endpoints</h3>
+  <nav>
+  <ul>
+  <li>
+  </li>
+  </ul>
+  </nav>
+  <section id='stats'>
+  <h2>Stats</h2>
+  <p>
+  URL:
+  <code>https://api.bsov.info/stats.json</code>, copy paste into code or browser
+  </p>
+  <p class='rate'>
+  Rate limit:
+  10 calls per 10 seconds per IP address. It's fine to call this from your
+  website's JavaScript since each of your visitors has a different IP
+  address, even if you have millions of users.
+  </p>
+
+  <p>
+  <ul>
+
+  <li>When I can get a stable price I'll add <code>usdPrice</code> it calculates the current price price</li>
+  </ul>
+  </p>
+  <p>
+  To use:
+  Simply do a normal HTTP GET to
+  <code>https://api.bsov.info/stats.json</code>, and you will receive JSON
+  like the following:
+  </p>
+
+  <pre><code> <p align="center">**THIS IS ONLY FOR EDUCATION IT IS NOT UP TO DATE. COPY PASTE THE LINK INTO YOUR BROWSER TO SEE THE LIVE STATS**<br>https://api.bsov.info/stats.json</p>&#x000A; {&#x000A;  "apiVersion": "1.01",&#x000A;  "name": "BitcoinSoV",&#x000A;  "symbol": "BSOV",&#x000A;  "contractUrl": "https://etherscan.io/address/0x26946ada5ecb57f3a1f91605050ce45c482c9eb1",&#x000A;  "contractAddress": "0x26946ada5ecb57f3a1f91605050ce45c482c9eb1",&#x000A;  "decimals": 100000000,&#x000A;  "difficulty": 1009469,&#x000A;  "minimumTarget": "65536",&#x000A;  "maximumTarget": "27606985387162255149739023449108101809804435888681546220650096895197184",&#x000A;  "miningTarget": "27348007495031868709423690229890507385443933916168942418416600082",&#x000A;  "challengeNumber": "0x663deea892434d13773902c9ece56c6aed45a1e0726faea4b7a8c0af5c4b3393",&#x000A;  "rewardEra": "0",&#x000A;  "maxSupplyForEra": 1050000000000000,&#x000A;  "blocksPerReadjustment": 1024,&#x000A;  "latestDifficultyPeriodStarted": 8198418,&#x000A;  "tokensBurned": 11323,&#x000A;  "circulatingSupply": 1496350,&#x000A;  "totalSupply": 20988676.75348229,&#x000A;  "lastRewardTo": "0x7c5b6a029627bbb251710b8b6e86f606b5aa7d81",&#x000A;  "lastRewardAmount": 5000000000,&#x000A;  "lastRewardEthBlockNumber": 8200987,&#x000A;  "currentEthBlock": 8200995,&#x000A;  "ethBlocksSinceLastDifficultyPeriod": 2577,&#x000A;  "secondsPerReward": 194.2462311557789,&#x000A;  "hashrateEstimate": 21797194451.57964,&#x000A;  "hashrateEstimateDescription": "21.80 GH/s",&#x000A;  "rewardsSinceReadjustment": 199,&#x000A;}</code></pre>
+  </section>
+<br>
+
+
+  <h3><p>Description of keys</p></h3>
+
+  <dl>
+
+<kbd>apiVersion</kbd>
+<kbd>1.01</kbd>
+
+<dt><code>name</code></dt>
+  <dd><code>BitcoinSoV</code></dd>
+  <dd>
+  <kbd>ERC-20 token name.</kbd>
+  </dd>
+  <dt class='perm'><code>symbol</code></dt>
+  <dd class='perm'><code>BSOV</code></dd>
+  <dd>
+  <kbd>ERC-20 token symbol.</kbd>
+  </dd>
+  <dt><code>contractUrl</code></dt>
+  <dd><code>https://etherscan.io/address/0x26946ada5ecb57f3a1f91605050ce45c482c9eb1</code></dd>
+  <dd>
+  <a href="https://etherscan.io/address/0x26946ada5ecb57f3a1f91605050ce45c482c9eb1" target="blank">View contract</a>
+  </dd>
+  <dd>
+  <kbd>The Etherscan URL for viewing the contract is not expected to change. (This
+  URL is for humans only; computers don't need this value.)</kbd>
+  </dd>
+  <dt class='perm'><code>contractAddress</code></dt>
+  <dd class='perm'><code>0x26946ada5ecb57f3a1f91605050ce45c482c9eb1</code></dd>
+  <dd>
+  <kbd>Ethereum address of the BitcoinSoV smart contract.</kbd>
+  </dd>
+  <dt class='perm'><code>decimals</code></dt>
+  <dd class='perm'><code>100000000</code></dd>
+  <dd>
+  <kbd>1 BSOV can be subdivided 100,000,000 times (eight decimal places), so the
+  smallest possible transfer would be —</kbd>
+  <dl>
+  <dt>
+  <kbd>0.00000001 BSOV</kbd>
+  </dt>
+  <dd><kbd>aka 1/100,000,000th of 1 BSOV></kbd></dd>
+  <dd><kbd>aka 1 Satoasti (named after Infernal_Toast).</kbd></dd>
+  </dl>
+  </dd>
+  <dt class='varies'><code>difficulty</code></dt>
+  <dd class='varies'><code>1009469</code></dd>
+  <dd>
+  <kbd>How hard mining is now, relative to how hard it was at the start of
+  BSOV. If <code>difficulty</code> is currently <code>1009469</code>, that means
+  it is ~1 million times as hard to mine BSOV now as it was on Jun-17-2019
+  02:24:08 AM +UTC when the contract was created. (Initially, <code>difficulty</code>
+  was <code>1</code>.)</kbd>
+  </dd>
+  <dt class='perm'><code>minimumTarget</code></dt>
+  <dd class='perm'><code>65536</code></dd>
+  <dd>
+  <kbd>Mining the next BitcoinSoV block requires finding a 256-bit SHA3-Keccack
+  hash such that <code>keccak256(challengeNumber, msg.sender, nonce) ≤
+  miningTarget</code>. The smaller <code>miningTarget</code> is, the harder
+  mining BitcoinSoV is. (Given as a string for compatability with bsov-api.)</kbd>
+  </dd>
+  <dt class='perm'><code>maximumTarget</code></dt>
+  <dd class='perm'><code>27606985387162255149739023449108101809804435888681546220650096895197184</code></dd>
+  <dd>
+  <kbd>This was the initial value of <code>miningTarget</code> when mining was
+  easiest. It is equal to 2<sup>234</sup>. Finding a hash less than this
+  number is not hard; it only takes 4,194,304 guesses on average
+  (2<sup>22</sup> guesses). (Given as a string because JavaScript can't
+  natively handle large numbers.)</kbd>
+  </dd>
+  <dt class='varies'><code>miningTarget</code></dt>
+  <dd class='varies'><code>27348007495031868709423690229890507385443933916168942418416600082</code></dd>
+  <dd>
+  <kbd>The current <code>miningTarget</code>. The BitcoinSoV smart contract adjusts
+  the difficulty of mining by lowering/raising <code>miningTarget</code> over
+  time, in order to control the emission rate of BSOV. If mining is
+  happening too fast, it decreases <code>miningTarget</code> and vice versa.
+  The target rate is one block mined every 10 minutes. Readjustment happens
+  every 1,024 BitcoinSoV blocks. (Given as a string because JavaScript can't
+  natively handle large numbers.)</kbd>
+  </dd>
+  <dt class='varies'><code>challengeNumber</code></dt>
+  <dd class='varies'><code>0x663deea892434d13773902c9ece56c6aed45a1e0726faea4b7a8c0af5c4b3393</code></dd>
+  <dd>
+  <kbd>This changes every time a BitcoinSoV block is mined. It is set to the block
+  hash of the immediately preceding Ethereum block. Having this value change
+  on every BSOV block is critical since it prevents any kind of
+  premining attack.</kbd>
+  </dd>
+  <dt class='varies'><code>rewardEra</code></dt>
+  <dd class='varies'><code>0</code></dd>
+  <dd>
+  <kbd>The current era. There will be 40 in total (<code>0...39</code>). The
+  mining reward, which started at 50 in the first era (number
+  <code>0</code>), halves at the start of every new era.</kbd>
+  </dd>
+  <dt class='varies'><code>maxSupplyForEra</code></dt>
+  <dd class='varies'><code>1050000000000000</code></dd>
+  <dd><kbd>The total number of BSOV that will be mined in the current era.</kbd></dd>
+  <dt class='perm'><code>blocksPerReadjustment</code></dt>
+  <dd class='perm'><code>1024</code></dd>
+  <dd><kbd>The smart contract readjusts the difficulty of mining every 1,024 BitcoinSoV blocks. (More info above.)</kbd></dd>
+  <dt class='varies'><code>latestDifficultyPeriodStarted</code></dt>
+  <dd class='varies'><code>8198418</code></dd>
+  <dd>
+  <kbd>The Ethereum block number at the time the difficulty was last readjusted.</kbd>
+  </dd>
+<dt class='varies'><code>tokensBurned</code></dt>
+<dd class='varies'><code>11323</code></dd>
+<dd>
+<kbd>The number of BitcoinSoV tokens that have been burned currently. There is a 1% burn function on the contract,
+so everytime someone sends a BSOV token transaction 1% of those will be burned to the burn address <code>0x0000000000000000000000000000000000000000</code></kbd>
+</dd>
+  <dt class='varies'><code>circulatingSupply</code></dt>
+  <dd class='varies'><code>1496350</code></dd>
+  <dd>
+  <kbd>The total number of BSOV that have been mined so far.</kbd>
+  </dd>
+  <dt class='varies'><code>totalSupply</code></dt>
+  <dd class='varies'><code>20988676.75348229</code></dd>
+  <dd>
+  <kbd>The maximum number number of BSOV that can ever exist.
+  The total supply decreases when BSOV are burned (that is, transfered to
+  the Ethereum address <code>0x0000000000000000000000000000000000000000</code>, from which
+  they can never be recovered). This value can only decrease with time.</kbd>
+  </dd>
+  <dt class='varies'><code>lastRewardTo</code></dt>
+  <dd class='varies'><code>0x7c5b6a029627bbb251710b8b6e86f606b5aa7d81</code></dd>
+  <dd>
+  <kbd>The Ethereum address of the miner who mined the last block.</kbd>
+  </dd>
+  <dt class='varies'><code>lastRewardAmount</code></dt>
+  <dd class='varies'><code>5000000000</code></dd>
+  <dd>
+  <kbd>How many BitcoinSoV (in Satoastis) were awarded in the last block. This decreases by half
+  every era. The <code>5000000000</code> example shown here means 50.00000000 BSOV.</kbd>
+  </dd>
+  <dt class='varies'><code>lastRewardEthBlockNumber</code></dt>
+  <dd class='varies'><code>8200987</code></dd>
+  <dd>
+  <kbd>The number of the most recent Ethereum block where BitcoinSoV was
+  successfully mined.</kbd>
+  </dd>
+  <dt class='varies'><code>currentEthBlock</code></dt>
+  <dd class='varies'><code>8200995</code></dd>
+  <dd>
+  <kbd>The current Ethereum block number. Ethereum miners are always trying to
+  mine the next block in a process similar to BitcoinSoV mining, but with a
+  completely different algorithm. Ethereum adjusts its own mining difficulty
+  to try to have one block every 15 seconds.</kbd>
+  </dd>
+  <dt class='varies'><code>ethBlocksSinceLastDifficultyPeriod</code></dt>
+  <dd class='varies'><code>2577</code></dd>
+  <dd>
+  <kbd>How many Ethereum blocks have been mined since the BitcoinSoV smart contract
+  last adjusted the mining difficulty of BitcoinSoV. This value is used by the
+  smart contract to figure out how much to readjust difficulty by, when it
+  readjusts difficulty every 1,024 blocks.</kbd>
+  </dd>
+  <dt class='varies'><code>secondsPerReward</code></dt>
+  <dd class='varies'><code>194.2462311557789</code></dd>
+  <dd>
+  <kbd>In the current difficulty period, how long it has taken each BitcoinSoV
+  block to be mined, on average. This will normally be about 600 seconds, but
+  it could be lower if total BitcoinSoV mining power (hashrate) has recently
+  ramped up a lot.</kbd>
+  </dd>
+  <dt class='varies'><code>hashrateEstimate</code></dt>
+  <dd class='varies'><code>21797194451.57964</code></dd>
+  <dd>
+  <kbd>Given the current mining difficulty (which is directly related to
+  <code>miningTarget</code>), this is the number of hash guesses that are
+  being done per second by all BitcoinSoV miners.</kbd>
+  </dd>
+  <dt class='varies'><code>hashrateEstimateDescription</code></dt>
+  <dd class='varies'><code>21.80 GH/s</code></dd>
+  <dd>
+  <kbd>The <code>hashrateEstimate</code> expressed in gigahashes per second. 1
+  GH/s is 1 billion hashes per second.</kbd>
+  </dd>
+  <dt class='varies'><code>rewardsSinceReadjustment</code></dt>
+  <dd class='varies'><code>199</code></dd>
+  <dd>
+  <kbd>The number of BitcoinSoV blocks that have been mined in the current
+  difficulty period. This value is computed (but not stored) by the smart
+  contract on every solved block to figure out when to do a readjustment of
+  difficulty (actually <code>miningTarget</code>), which happens every 1,024
+  BitcoinSoV blocks.</kbd>
+  </dd>
+
+  <!--hide
+  <dt class='varies'><code>usdPrice</code></dt>
+  <dd class='varies'><code>0.21570</code></dd>
+  <dd>
+   <kbd>The weighted price of BitcoinSoV on exchanges. Right now this is collected
+  from Live Coin Watch.</kbd>
+  </dd>
+hide--->
+
+  </dl>
+
+</div>
+</div>
+</div>
