@@ -71,7 +71,7 @@ const routesData = {
     {url: '/account', title: '0xBTC.wiki', template: 'app/views/account.html', filename: 'account.html'},
     {url: '/tx', title: '0xBTC.wiki', template: 'app/views/transaction.html', filename: 'transaction.html'},
     {url: '/search', title: '0xBTC.wiki', template: 'app/views/search.html', filename: 'search.html'},
-    {url: '/wallet', title: '0xBTC Wallet', template: 'app/views/wallet.html', filename: 'wallet.html'},
+    {url: '/api', title: '0xBTC Wallet', template: 'app/views/api.html', filename: 'api.html'},
    ]
 }
 

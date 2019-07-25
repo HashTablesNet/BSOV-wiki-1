@@ -1,0 +1,336 @@
+<html>
+<head>
+  <!-- You DON'T NEED THIS BOOTSTRAP CODE, JUST USED TO STYLE THIS PAGE   START-->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous"/>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <!-- You DON'T NEED THIS BOOTSTRAP CODE, JUST USED TO STYLE THIS PAGE   END-->
+
+
+
+      <!-- THIS is the Script tags you edit, with #html tags and api tags   START -->
+  <script>
+  function fetchJson() {
+    var xhr = new XMLHttpRequest();
+
+    // set a callback for when the json is loaded
+    xhr.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200)
+
+      { // if json loaded successfully
+
+        var data = JSON.parse(this.responseText);
+
+        // do stuff with data
+        document.querySelector("#apiVersion").innerText = data["apiVersion"];
+        document.querySelector("#name").innerText = data["name"];
+        document.querySelector("#symbol").innerText = data["symbol"];
+        document.querySelector("#contractUrl").innerText = data["contractUrl"];
+        document.querySelector("#contractAddress").innerText = data["contractAddress"];
+        document.querySelector("#decimals").innerText = data["decimals"];
+        document.querySelector("#difficulty").innerText = data["difficulty"];
+        document.querySelector("#minimumTarget").innerText = data["minimumTarget"];
+        document.querySelector("#maximumTarget").innerText = data["maximumTarget"];
+        document.querySelector("#miningTarget").innerText = data["miningTarget"];
+        document.querySelector("#challengeNumber").innerText = data["challengeNumber"];
+        document.querySelector("#rewardEra").innerText = data["rewardEra"];
+        document.querySelector("#maxSupplyForEra").innerText = data["maxSupplyForEra"];
+        document.querySelector("#blocksPerReadjustment").innerText = data["blocksPerReadjustment"];
+        document.querySelector("#latestDifficultyPeriodStarted").innerText = data["latestDifficultyPeriodStarted"];
+        document.querySelector("#tokensBurned").innerText = data["tokensBurned"];
+        document.querySelector("#circulatingSupply").innerText = data["circulatingSupply"];
+        document.querySelector("#totalSupply").innerText = data["totalSupply"];
+        document.querySelector("#lastRewardTo").innerText = data["lastRewardTo"];
+        document.querySelector("#lastRewardAmount").innerText = data["lastRewardAmount"];
+        document.querySelector("#lastRewardEthBlockNumber").innerText = data["lastRewardEthBlockNumber"];
+        document.querySelector("#currentEthBlock").innerText = data["currentEthBlock"];
+        document.querySelector("#ethBlocksSinceLastDifficultyPeriod").innerText = data["ethBlocksSinceLastDifficultyPeriod"];
+        document.querySelector("#secondsPerReward").innerText = data["secondsPerReward"];
+        document.querySelector("#hashrateEstimate").innerText = data["hashrateEstimate"];
+        document.querySelector("#hashrateEstimateDescription").innerText = data["hashrateEstimateDescription"];
+        document.querySelector("#rewardsSinceReadjustment").innerText = data["rewardsSinceReadjustment"];
+      }
+    };
+
+    // fetch the json
+    xhr.open("GET", "https://api.bsov.info/", true);
+    xhr.send();
+  }
+  window.onload = function() {
+    fetchJson();
+  };
+  </script>
+<!-- THIS is the Script tags you edit, with #html tags and api tags   END-->
+
+<body>
+
+<div class="container bg-dark tab-content shadow p3 mb-5 rounded">
+
+  <font style="color: #fff">
+
+<!-- This is just sample html input it normally in tags, design it how you want   START-->
+<br><br>
+    <h2>BSOV Stats getJSON() example</h2>
+
+    <p>Version:  <font id="apiVersion">loading...</font></p>
+    <p>Name:  <font id="name">loading...</font></p>
+    <p>Symbol:  <font id="symbol">loading...</font></p>
+    <p>Contract URL:  <font id="contractUrl">loading...</font></p>
+    <p>Contract Address:  <font id="contractAddress">loading...</font></p>
+    <p>Decimals:  <font id="decimals">loading...</font></p>
+    <p>Mining Difficulty:  <font id="difficulty">loading...</font></p>
+    <p>Minium Diff Target:  <font id="minimumTarget">loading...</font></p>
+    <p>Maximum Diff Target:  <font id="maximumTarget">loading...</font></p>
+    <p>Mining Target:  <font id="miningTarget">loading...</font></p>
+    <p>Current Challenge #:  <font id="challengeNumber">loading...</font></p>
+    <p>Current reweard Era:  <font id="rewardEra">loading...</font></p>
+    <p>Maximum Supply for Current Era  :<font id="maxSupplyForEra">loading...</font></p>
+    <p>Blocks per Readjustment:  <font id="blocksPerReadjustment">loading...</font></p>
+    <p>Latest Difficulty period started (Eth block #):  <font id="latestDifficultyPeriodStarted">loading...</font></p>
+    <p>Tokens Burned:  <b><font size="4" style="color: red;"><span id="tokensBurned">loading...</span>   BSOV</font></p></b>
+    <p>Current Circulating Supply:  <b><font size="4" style="color: green;"><span id="circulatingSupply">loading...</span>   BSOV</font></p></b>
+    <p>Total Supply Possible:  <font id="totalSupply">loading...</font></p>
+    <p>Last Mining Reward Finder:  <font id="lastRewardTo">loading...</font></p>
+    <p>Last Mining Reward amount:  <font id="lastRewardAmount">loading...</font></p>
+    <p>Last Reward Eth Block #:  <font id="lastRewardEthBlockNumber">loading...</font></p>
+    <p>Current Ethereum Block #:  <font id="currentEthBlock">loading...</font></p>
+    <p># of Ethereum Blocks since last Difficulty Adjustment:  <font id="ethBlocksSinceLastDifficultyPeriod">loading...</font></p>
+    <p>Average Seconds per reward:  <font id="secondsPerReward">loading...</font></p>
+    <p>Hashrate Estimate:  <font id="hashrateEstimate">loading...</font></p>
+    <p>Hashrate Estimate Description:  <font id="hashrateEstimateDescription">loading...</font></p>
+    <p>BSOV Rewards since last readjustment:  <font id="rewardsSinceReadjustment">loading...</font> /out of 1024</p>
+
+<!-- This is just sample html input it normally in tags, design it how you want  END-->
+</font>
+<br>
+<br>
+<br>
+</div>
+<div class="container bg-dark tab-content shadow p3 mb-5 rounded">
+
+  <font style="color: #fff">
+<h1>Developer API</h1>
+<h3>Available API endpoints</h3>
+
+<h2>Stats</h2>
+<p>URL: https://api.bsov.info, copy paste into code or browser
+</p>
+<p class='rate'>
+Rate limit:
+10 calls per 10 seconds per IP address. It's fine to call this from your
+website's JavaScript since each of your visitors has a different IP
+address, even if you have millions of users.
+</font>
+<br>
+
+<pre>
+<code>
+  <font style="color: #fff">
+<h3><p>Description of keys</p></h3>
+
+<dl>
+
+apiVersion
+1.01
+
+<dt>name</dt>
+<dd>BitcoinSoV</dd>
+<dd>
+ERC-20 token name.
+</dd>
+<dt class='perm'>symbol</dt>
+<dd class='perm'>BSOV</dd>
+<dd>
+ERC-20 token symbol.
+</dd>
+<dt>contractUrl</dt>
+<dd>https://etherscan.io/address/0x26946ada5ecb57f3a1f91605050ce45c482c9eb1</dd>
+<dd>
+<a href="https://etherscan.io/address/0x26946ada5ecb57f3a1f91605050ce45c482c9eb1" target="blank">View contract</a>
+</dd>
+<dd>
+The Etherscan URL for viewing the contract is not expected to change. (This
+URL is for humans only; computers don't need this value.)
+</dd>
+<dt class='perm'>contractAddress</dt>
+<dd class='perm'>0x26946ada5ecb57f3a1f91605050ce45c482c9eb1</dd>
+<dd>
+Ethereum address of the BitcoinSoV smart contract.
+</dd>
+<dt class='perm'>decimals</dt>
+<dd class='perm'>100000000</dd>
+<dd>
+1 BSOV can be subdivided 100,000,000 times (eight decimal places), so the
+smallest possible transfer would be —
+<dl>
+<dt>
+0.00000001 BSOV
+</dt>
+<dd>aka 1/100,000,000th of 1 BSOV></dd>
+<dd>aka 1 Satoasti (named after Infernal_Toast).</dd>
+</dl>
+</dd>
+<dt class='varies'>difficulty</dt>
+<dd class='varies'>1009469</dd>
+<dd>
+How hard mining is now, relative to how hard it was at the start of
+BSOV. If difficulty is currently 1009469, that means
+it is ~1 million times as hard to mine BSOV now as it was on Jun-17-2019
+02:24:08 AM +UTC when the contract was created. (Initially, difficulty
+was 1.)
+</dd>
+<dt class='perm'>minimumTarget</dt>
+<dd class='perm'>65536</dd>
+<dd>
+Mining the next BitcoinSoV block requires finding a 256-bit SHA3-Keccack
+hash such that keccak256(challengeNumber, msg.sender, nonce) ≤
+miningTarget. The smaller miningTarget is, the harder
+mining BitcoinSoV is. (Given as a string for compatability with bsov-api.)
+</dd>
+<dt class='perm'>maximumTarget</dt>
+<dd class='perm'>27606985387162255149739023449108101809804435888681546220650096895197184</dd>
+<dd>
+This was the initial value of miningTarget when mining was
+easiest. It is equal to 2<sup>234</sup>. Finding a hash less than this
+number is not hard; it only takes 4,194,304 guesses on average
+(2<sup>22</sup> guesses). (Given as a string because JavaScript can't
+natively handle large numbers.)
+</dd>
+<dt class='varies'>miningTarget</dt>
+<dd class='varies'>27348007495031868709423690229890507385443933916168942418416600082</dd>
+<dd>
+The current miningTarget. The BitcoinSoV smart contract adjusts
+the difficulty of mining by lowering/raising miningTarget over
+time, in order to control the emission rate of BSOV. If mining is
+happening too fast, it decreases miningTarget and vice versa.
+The target rate is one block mined every 10 minutes. Readjustment happens
+every 1,024 BitcoinSoV blocks. (Given as a string because JavaScript can't
+natively handle large numbers.)
+</dd>
+<dt class='varies'>challengeNumber</dt>
+<dd class='varies'>0x663deea892434d13773902c9ece56c6aed45a1e0726faea4b7a8c0af5c4b3393</dd>
+<dd>
+This changes every time a BitcoinSoV block is mined. It is set to the block
+hash of the immediately preceding Ethereum block. Having this value change
+on every BSOV block is critical since it prevents any kind of
+premining attack.
+</dd>
+<dt class='varies'>rewardEra</dt>
+<dd class='varies'>0</dd>
+<dd>
+The current era. There will be 40 in total (0...39). The
+mining reward, which started at 50 in the first era (number
+0), halves at the start of every new era.
+</dd>
+<dt class='varies'>maxSupplyForEra</dt>
+<dd class='varies'>1050000000000000</dd>
+<dd>The total number of BSOV that will be mined in the current era.</dd>
+<dt class='perm'>blocksPerReadjustment</dt>
+<dd class='perm'>1024</dd>
+<dd>The smart contract readjusts the difficulty of mining every 1,024 BitcoinSoV blocks. (More info above.)</dd>
+<dt class='varies'>latestDifficultyPeriodStarted</dt>
+<dd class='varies'>8198418</dd>
+<dd>
+The Ethereum block number at the time the difficulty was last readjusted.
+</dd>
+<dt class='varies'>tokensBurned</dt>
+<dd class='varies'>11323</dd>
+<dd>
+The number of BitcoinSoV tokens that have been burned currently. There is a 1% burn function on the contract,
+so everytime someone sends a BSOV token transaction 1% of those will be burned to the burn address 0x0000000000000000000000000000000000000000
+</dd>
+<dt class='varies'>circulatingSupply</dt>
+<dd class='varies'>1496350</dd>
+<dd>
+The total number of BSOV that have been mined so far.
+</dd>
+<dt class='varies'>totalSupply</dt>
+<dd class='varies'>20988676.75348229</dd>
+<dd>
+The maximum number number of BSOV that can ever exist.
+The total supply decreases when BSOV are burned (that is, transfered to
+the Ethereum address 0x0000000000000000000000000000000000000000, from which
+they can never be recovered). This value can only decrease with time.
+</dd>
+<dt class='varies'>lastRewardTo</dt>
+<dd class='varies'>0x7c5b6a029627bbb251710b8b6e86f606b5aa7d81</dd>
+<dd>
+The Ethereum address of the miner who mined the last block.
+</dd>
+<dt class='varies'>lastRewardAmount</dt>
+<dd class='varies'>5000000000</dd>
+<dd>
+How many BitcoinSoV (in Satoastis) were awarded in the last block. This decreases by half
+every era. The 5000000000 example shown here means 50.00000000 BSOV.
+</dd>
+<dt class='varies'>lastRewardEthBlockNumber</dt>
+<dd class='varies'>8200987</dd>
+<dd>
+The number of the most recent Ethereum block where BitcoinSoV was
+successfully mined.
+</dd>
+<dt class='varies'>currentEthBlock</dt>
+<dd class='varies'>8200995</dd>
+<dd>
+The current Ethereum block number. Ethereum miners are always trying to
+mine the next block in a process similar to BitcoinSoV mining, but with a
+completely different algorithm. Ethereum adjusts its own mining difficulty
+to try to have one block every 15 seconds.
+</dd>
+<dt class='varies'>ethBlocksSinceLastDifficultyPeriod</dt>
+<dd class='varies'>2577</dd>
+<dd>
+How many Ethereum blocks have been mined since the BitcoinSoV smart contract
+last adjusted the mining difficulty of BitcoinSoV. This value is used by the
+smart contract to figure out how much to readjust difficulty by, when it
+readjusts difficulty every 1,024 blocks.
+</dd>
+<dt class='varies'>secondsPerReward</dt>
+<dd class='varies'>194.2462311557789</dd>
+<dd>
+In the current difficulty period, how long it has taken each BitcoinSoV
+block to be mined, on average. This will normally be about 600 seconds, but
+it could be lower if total BitcoinSoV mining power (hashrate) has recently
+ramped up a lot.
+</dd>
+<dt class='varies'>hashrateEstimate</dt>
+<dd class='varies'>21797194451.57964</dd>
+<dd>
+Given the current mining difficulty (which is directly related to
+miningTarget), this is the number of hash guesses that are
+being done per second by all BitcoinSoV miners.
+</dd>
+<dt class='varies'>hashrateEstimateDescription</dt>
+<dd class='varies'>21.80 GH/s</dd>
+<dd>
+The hashrateEstimate expressed in gigahashes per second. 1
+GH/s is 1 billion hashes per second.
+</dd>
+<dt class='varies'>rewardsSinceReadjustment</dt>
+<dd class='varies'>199</dd>
+<dd>
+The number of BitcoinSoV blocks that have been mined in the current
+difficulty period. This value is computed (but not stored) by the smart
+contract on every solved block to figure out when to do a readjustment of
+difficulty (actually miningTarget), which happens every 1,024
+BitcoinSoV blocks.
+</dd>
+
+<!--hide
+<dt class='varies'>usdPrice</dt>
+<dd class='varies'>0.21570</dd>
+<dd>
+ The weighted price of BitcoinSoV on exchanges. Right now this is collected
+from Live Coin Watch.
+</dd>
+hide--->
+
+</dl>
+</code>
+</pre>
+
+</font>
+
+</div>
+
+</body>
+</html>
