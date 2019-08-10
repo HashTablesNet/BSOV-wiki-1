@@ -442,7 +442,7 @@ function generateHashrateGraph(eth, max_target_bn, ideal_block_time_seconds, tar
 
     data: {
         datasets: [{
-            label: "Current Estimated Hashrate",
+            label: "Current Estimated Hourly Hashrate",
             showLine: true,
             backgroundColor: chart_line_background_color,
             borderColor: chart_line_border_color,
